@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+
 #overlay {
     background-color: transparent !important;
     position:absolute;
@@ -14,6 +16,9 @@ a.nav-link{
     color: white !important;
     font-weight: bold !important;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Prompt', sans-serif;
+
 }
 
 a.nav-link:hover{
