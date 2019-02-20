@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Video from '../components/Video'
 import Logo from '../components/Logo'
+// import { Col, Row, Container } from "../components/Grid";
+
 
 class Home extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            videoURL: 'Puppy - 4740.mp4'
+            videoURL: 'puppy.mp4'
         }
     }
 
@@ -16,6 +18,7 @@ class Home extends Component {
             <div>
                 <Video/>
                 <Logo/>
+               
             </div>              
                 )
             }
