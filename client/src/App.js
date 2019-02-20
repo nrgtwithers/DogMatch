@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import How from "./pages/How";
+import Quiz from "./pages/Quiz";
+import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
 import SearchResults from "./pages/SearchResults";
 import NavBar from "./components/NavBar";
