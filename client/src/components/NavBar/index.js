@@ -14,13 +14,13 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">How it Works</Link>
+                            <Link to="/howitworks" className="nav-link">How it Works</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Login</Link>
+                            <Link to="/login" className="nav-link">Login</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">Sign up</Link>
+                            <Link to="/signup" className="nav-link">Sign up</Link>
                         </li>
                     </ul>
 
