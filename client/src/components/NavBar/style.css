@@ -1,5 +1,5 @@
 #overlay {
-    background-color: transparent;
+    background-color: transparent !important;
     position:absolute;
     top:0;
     bottom:0;
@@ -7,3 +7,18 @@
     right:0;
     z-index:11;
   }
+
+a.nav-link{
+    text-shadow: 1px 1px #000000;
+    margin-right: 10px !important;
+    color: white !important;
+    font-weight: bold !important;
+    letter-spacing: 2px;
+}
+
+a.nav-link:hover{
+    color:silver !important;
+}
+
+  .navbar-trans {
+    background-color: rgba(0,0,0,0); }

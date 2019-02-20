@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
-        <div className="overlay">
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="overlay">
+            <nav className="navbar navbar-trans navbar-expand-lg navbar-light bg-clear">
                 {/* <a className="navbar-brand" href="#">Navbar</a> */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
