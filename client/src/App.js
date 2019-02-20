@@ -8,13 +8,13 @@ import Quiz from "./pages/Quiz";
 import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
 import SearchResults from "./pages/SearchResults";
-import NavBar from "./components/NavBar";
+// import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
       <div>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
