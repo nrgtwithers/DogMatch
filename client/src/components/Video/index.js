@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.css";
 
 function Video() {
     return (
-        <video autoplay muted loop id="myVideo">
-            <source src="Puppy - 4740.mp4" type="video/mp4" />
+        <video autoPlay muted loop id="myVideo">
+            <source src="./assets/puppy.mp4" type="video/mp4" />
         </video>
     );
 }
