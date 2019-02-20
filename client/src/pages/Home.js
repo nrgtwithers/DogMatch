@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Video from '../components/Video'
+import Logo from '../components/Logo'
 
 class Home extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class Home extends Component {
         return (
             <div>
                 <Video/>
+                <Logo/>
             </div>              
                 )
             }
