@@ -8,7 +8,7 @@ corgi = {
 }
 */
 var dogs = [
-     {
+    {
         name: "Corgi",
         friendliness: 5,
         goodWithKids: 3,
@@ -29,17 +29,25 @@ var dogs = [
 ]
 
 
-// filter objects
 
-let userFriend = 3;
+function friendMatch() {
+    var userInput = document.getElementById("cuddle").value;
 
-const friendliness = dogs.filter(function (friend) {
-    return friend.friendliness >= userFriend;
-});
+    event.preventDefault();
+    console.log(userInput);
+
+    let friendliness = dogs.filter(function (friend) {
+        return friend.friendliness >= userInput;
+    });
+
+    for(var i=0; i < friendliness.length; i++) {
+        console.log(friendliness[i].name);
+    }
+}
 
 
 
-console.log(friendliness);
+// console.log(friendliness);
 
 
 
