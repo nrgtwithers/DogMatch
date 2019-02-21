@@ -133,6 +133,9 @@ for(var i=0; i < dogsAndKids.length; i++) {
 
 console.log(dogResults);
 
+var counts = {};
+dogResults.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
 
+console.log(counts);
 
 }
