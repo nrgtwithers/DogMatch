@@ -1,12 +1,4 @@
-// split values so you can grab quiz answers
-
-// example format
-/*
-corgi = {
-    friendliness: 5,
-    goodWithKids: 3
-}
-*/
+// dummy data
 var dogs = [
     {
         name: "Corgi",
