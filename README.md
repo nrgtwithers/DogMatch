@@ -40,6 +40,14 @@ It will also, allow them to see local rescues and breeders of the perfect canine
 #### API Key
 - 300cb21456a9656c61757fb75d958a79
 
+Will work with Fetch, as opposed to AJAX
+ 
+GET Request with this the following URL call will return Corgis that are within range of the 20190 zip code. The response includes name, sex, photos, descriptions, shelterIDs, locations, and contact info for the specific listing
+http://api.petfinder.com/pet.find?animal=dog&breed=Corgi&location=20190&key=300cb21456a9656c61757fb75d958a79&format=json
+
+
+
+
 #### Brainstorm Quiz
 1. Pet size
     - size of the person?
@@ -55,3 +63,4 @@ It will also, allow them to see local rescues and breeders of the perfect canine
 4. Lifespan
     - commitment and/or health issues?
     - definitely on back burner in terms of quiz
+
