@@ -46,6 +46,11 @@ GET Request with this the following URL call will return Corgis that are within 
 http://api.petfinder.com/pet.find?animal=dog&breed=Corgi&location=20190&key=300cb21456a9656c61757fb75d958a79&format=json
 
 
+Returns shelters near the given zip code, with contact information, name and address. With the location API, we might be able to help them pick a shelter to visit.
+http://api.petfinder.com/shelter.find?location=20190&key=300cb21456a9656c61757fb75d958a79&format=json
+
+
+Dogs listed in the general pet.find method include shelter dogs though, so not sure if listing shelters needs to be top priority in the API result aspect. But it could be great as part of the JSON objects in terms of the scraped data.
 
 
 #### Brainstorm Quiz
