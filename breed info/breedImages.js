@@ -649,3 +649,4 @@
             image: "https://cdn2-www.dogtime.com/assets/uploads/2011/01/file_23132_yorkshire-terrier-300x189.jpg"
         }
     ]
+module.exports = images;

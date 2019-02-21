@@ -649,3 +649,4 @@
             weight: "4 to 6 pounds"
         }
     ]
+module.exports = dogWeight;

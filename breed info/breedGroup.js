@@ -649,3 +649,4 @@ var category = [
         breedGroup: "Companion Dogs"
     }
 ]
+module.exports = category; 

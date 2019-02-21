@@ -1081,3 +1081,5 @@
             dogFriendly: 3
         }
     ]
+
+module.exports = friendliness;

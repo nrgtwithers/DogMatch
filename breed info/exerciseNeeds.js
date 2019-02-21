@@ -1296,3 +1296,5 @@ var dogExerciseNeeds = [
         potentiaForPlayfulness: 5
     }
 ]
+
+module.exports = dogExerciseNeeds;

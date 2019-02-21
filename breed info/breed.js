@@ -649,3 +649,4 @@ var dogBreed = [
         breed: "Yorkshire Terrier"
     }
 ]
+module.exports = dogBreed;

@@ -649,3 +649,4 @@
             Description: "Small in size but big in personality, the Yorkshire Terrier makes a feisty but loving companion. The most popular toy dog breed in the U.S., the “Yorkie” has won many fans with his devotion to his owners, his elegant looks, and his suitability to apartment living."
         }
     ]
+module.exports = characteristics;

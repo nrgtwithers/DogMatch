@@ -649,3 +649,4 @@
             lifeSpan: "12 to 15 years"
         }
     ]
+module.exports = dogLifeSpan;

@@ -649,3 +649,4 @@ var dogHeight = [
         height: "8 inches to 9 inches tall at the shoulder"
     }
 ]
+module.exports = dogHeight;
