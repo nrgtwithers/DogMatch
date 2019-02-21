@@ -21,7 +21,7 @@ app.use(bodyParser.json())
 // Sessions
 app.use(
 	session({
-		secret: 'cacao', //pick a random string to make the hash that is generated secure
+		secret: '', //pick a random string to make the hash that is generated secure
 		store: new MongoStore({ mongooseConnection: models }),
 		resave: false, //required
 		saveUninitialized: false //required
