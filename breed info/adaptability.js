@@ -1728,3 +1728,5 @@ var adaptability = [
         toleratesHotWeather: 2
     }
 ]
+
+module.exports = adaptability ;

@@ -1,4 +1,4 @@
-var exerciseNeeds = [
+var dogExerciseNeeds = [
     {
         energyLevel: 4,
         intensity: 3,
@@ -1296,3 +1296,5 @@ var exerciseNeeds = [
         potentiaForPlayfulness: 5
     }
 ]
+
+module.exports = dogExerciseNeeds;
