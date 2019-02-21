@@ -14,20 +14,18 @@ const fs = require('fs');
 // const dogBreedInfo = adaptability.concat(dogBreed, category, dogHeight, images, characteristics, dogLifeSpan, dogWeight, dogExerciseNeeds, friendliness)
 let newArr = []
 
-function combo () {
-for (var i=0; i<friendliness.length; i++){
-    newArr.push(Object.assign({}))
-}
-}
+dogBreed.forEach((itm, i) => {
+    newArr.push(Object.assign({}, itm, friendliness[i], dogExerciseNeeds[i]))
+})
 
 
 
 // console.log(dogBreedInfo);
 
-// fs.writeFile("joinOutPut.js",   JSON.stringify(dogBreedInfo), function(err) {
-//     if(err) {
-//         return console.log(err);
-//     }
+fs.writeFile("joinOutPut.js",   JSON.stringify(newArr), function(err) {
+    if(err) {
+        return console.log(err);
+    }
 
-//     console.log("The file was saved!");
-// }); 
+    console.log("The file was saved!");
+}); 
