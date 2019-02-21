@@ -47,7 +47,6 @@ function friendMatch() {
     let kidBoo = document.querySelector('input[name="kidsY"]:checked').value;
     
     let dogBoo = document.querySelector('input[name="existDogs"]:checked').value;
-
     
     // filtering based on response 
 
@@ -55,29 +54,45 @@ function friendMatch() {
          kids = dogs.filter(function(friend) {
             return friend.goodWithKids >= 3;
         })
-        console.log(kids);
+        // console.log(kids);
     } else {
         kids = dogs.filter(function(friend) {
             return friend.goodWithKids >= 1;
         })
-        console.log(kids);
+        // console.log(kids);
     }
-    
 
     if (dogBoo === "true") {
         otherDogs = dogs.filter(function(friend) {
            return friend.goodWithDogs >= 3;
        })
-       console.log(otherDogs);
+    //    console.log(otherDogs);
    } else {
        otherDogs = dogs.filter(function(friend) {
            return friend.goodWithDogs >= 1;
        })
-       console.log(otherDogs);
+    //    console.log(otherDogs);
    }
+
+   let dogAffection = dogs.filter(function(friend) {
+       return friend.affectionate >= affectionWant; 
+   })
+
+   var userNeeds = {
+    affectNeed: affectionWant,
+    hasKid: kidBoo,
+    hasDog: dogBoo,
+    affectArr: dogAffection,
+    kidArr: kids,
+    dogArr: otherDogs
+}
+
+// console.log(userNeeds);
+
+let dogsAndKids = otherDogs.concat(kids);
     
 
-}
+
 
 // make filtered arrays for each object property
 
@@ -85,3 +100,39 @@ function friendMatch() {
 
 // count number of times each object was mapped into new array
 
+function compressArray(original) {
+    var compressed = [];
+    var copy = original.slice(0);
+
+    for(var i=0; i < original.length; i++) {
+        var myCount = 0;
+
+        for(var j=0; j < copy.length; j++) {
+            if (original[i] == copy[j]) {
+                myCount++;
+                delete copy[j];
+            }
+        }
+    } if (myCount > 0) {
+        var a = new Object();
+        a.value = original[i];
+        a.count = myCount;
+        compressed.push(a);
+    }
+    console.log("compressed array");
+    return compressed;
+}
+
+console.log(dogsAndKids);
+let dogResults = [];
+
+for(var i=0; i < dogsAndKids.length; i++) {
+    console.log(dogsAndKids[i].name);
+    dogResults.push(dogsAndKids[i].name);
+}
+
+console.log(dogResults);
+
+
+
+}
