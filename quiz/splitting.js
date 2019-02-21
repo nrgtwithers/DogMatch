@@ -10,45 +10,78 @@ corgi = {
 var dogs = [
     {
         name: "Corgi",
-        friendliness: 5,
+        affectionate: 5,
         goodWithKids: 3,
         goodWithDogs: 2
     },
     {
         name: "Affenpinscher",
-        friendliness: 2,
+        affectionate: 2,
         goodWithKids: 4,
         goodWithDogs: 5
     },
     {
         name: "Husky",
-        friendliness: 4,
+        affectionate: 4,
         goodWithKids: 2,
         goodWithDogs: 5
     }
 ]
 
+// Affectionate with Family: 4, Incredibly Kid Friendly Dogs: 3, Dog Friendly: 2",
 
+// matching the input with the objects above
+
+// temperament
 
 function friendMatch() {
-    var userInput = document.getElementById("cuddle").value;
 
     event.preventDefault();
-    console.log(userInput);
+    let kids;
+    let otherDogs;
 
-    let friendliness = dogs.filter(function (friend) {
-        return friend.friendliness >= userInput;
-    });
+    
+    // values pulled from form
+    let affectionWant = document.getElementById("cuddle").value;
 
-    for(var i=0; i < friendliness.length; i++) {
-        console.log(friendliness[i].name);
+    let kidBoo = document.querySelector('input[name="kidsY"]:checked').value;
+    
+    let dogBoo = document.querySelector('input[name="existDogs"]:checked').value;
+
+    
+    // filtering based on response 
+
+    if (kidBoo === "true") {
+         kids = dogs.filter(function(friend) {
+            return friend.goodWithKids >= 3;
+        })
+        console.log(kids);
+    } else {
+        kids = dogs.filter(function(friend) {
+            return friend.goodWithKids >= 1;
+        })
+        console.log(kids);
     }
+    
+
+    if (dogBoo === "true") {
+        otherDogs = dogs.filter(function(friend) {
+           return friend.goodWithDogs >= 3;
+       })
+       console.log(otherDogs);
+   } else {
+       otherDogs = dogs.filter(function(friend) {
+           return friend.goodWithDogs >= 1;
+       })
+       console.log(otherDogs);
+   }
+    
+
 }
 
-
-
-// console.log(friendliness);
+// make filtered arrays for each object property
 
 
 
 // count number of times each object was mapped into new array
+
