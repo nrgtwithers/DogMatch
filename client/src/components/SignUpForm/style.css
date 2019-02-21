@@ -12,7 +12,7 @@ form{
     min-height: 140px;
 }
 
-h6.login{
+h6.signup{
     color:#468499 !important;
     font-size:25px !important;
     text-align:center;
@@ -46,7 +46,7 @@ label{
 
 @media only screen and (max-width: 600px) {
     form{
-        min-height: 185px !important;
+        min-height: 195px !important;
     }
     button#loginButton {
         margin-top: 45px !important;
