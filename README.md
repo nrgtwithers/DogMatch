@@ -40,3 +40,18 @@ It will also, allow them to see local rescues and breeders of the perfect canine
 #### API Key
 - 300cb21456a9656c61757fb75d958a79
 
+#### Brainstorm Quiz
+1. Pet size
+    - size of the person?
+    - walkability/safety aspect
+    - living arrangement size issues
+2. Exercise needs
+    - living arrangement (sq footage)
+    - personal activity level
+    - willingness/ability to hire dogwalker/dog daycare
+3. Friendliness
+    - pets you already own
+    - children?
+4. Lifespan
+    - commitment and/or health issues?
+    - definitely on back burner in terms of quiz
