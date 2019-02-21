@@ -1,39 +1,39 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
-const morgan = require('morgan')
-const session = require('express-session')
+// const bodyParser = require('body-parser')
+// const morgan = require('morgan')
+// const session = require('express-session')
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session)
-const passport = require('./passport');
-const models = require('./models')
+// const MongoStore = require('connect-mongo')(session)
+// const passport = require('./passport');
+// const models = require('./models')
 const user = require('./user')
 
-// MIDDLEWARE
-app.use(morgan('dev'))
-app.use(
-	bodyParser.urlencoded({
-		extended: false
-	})
-)
-app.use(bodyParser.json())
+// // MIDDLEWARE
+// app.use(morgan('dev'))
+// app.use(
+// 	bodyParser.urlencoded({
+// 		extended: false
+// 	})
+// )
+// app.use(bodyParser.json())
 
-// Sessions
-app.use(
-	session({
-		secret: '', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: models }),
-		resave: false, //required
-		saveUninitialized: false //required
-	})
-)
+// // Sessions
+// app.use(
+// 	session({
+// 		secret: '', //pick a random string to make the hash that is generated secure
+// 		store: new MongoStore({ mongooseConnection: models }),
+// 		resave: false, //required
+// 		saveUninitialized: false //required
+// 	})
+// )
 
-// Passport
-app.use(passport.initialize())
-app.use(passport.session()) // calls the deserializeUser
+// // Passport
+// app.use(passport.initialize())
+// app.use(passport.session()) // calls the deserializeUser
 
-// routes
-app.use('/user', user)
+// // routes
+// app.use('/user', user)
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/dogBreeds",
