@@ -78,57 +78,19 @@ function friendMatch() {
        return friend.affectionate >= affectionWant; 
    })
 
-   var userNeeds = {
-    affectNeed: affectionWant,
-    hasKid: kidBoo,
-    hasDog: dogBoo,
-    affectArr: dogAffection,
-    kidArr: kids,
-    dogArr: otherDogs
-}
 
-// console.log(userNeeds);
+console.log(dogAffection);
 
-let dogsAndKids = otherDogs.concat(kids);
-    
+let temperament = otherDogs.concat(dogAffection).concat(kids);
 
+// count number of times each object was filtered into new array
 
-
-// make filtered arrays for each object property
-
-
-
-// count number of times each object was mapped into new array
-
-function compressArray(original) {
-    var compressed = [];
-    var copy = original.slice(0);
-
-    for(var i=0; i < original.length; i++) {
-        var myCount = 0;
-
-        for(var j=0; j < copy.length; j++) {
-            if (original[i] == copy[j]) {
-                myCount++;
-                delete copy[j];
-            }
-        }
-    } if (myCount > 0) {
-        var a = new Object();
-        a.value = original[i];
-        a.count = myCount;
-        compressed.push(a);
-    }
-    console.log("compressed array");
-    return compressed;
-}
-
-console.log(dogsAndKids);
+console.log(temperament);
 let dogResults = [];
 
-for(var i=0; i < dogsAndKids.length; i++) {
-    console.log(dogsAndKids[i].name);
-    dogResults.push(dogsAndKids[i].name);
+for(var i=0; i < temperament.length; i++) {
+    console.log(temperament[i].name);
+    dogResults.push(temperament[i].name);
 }
 
 console.log(dogResults);
