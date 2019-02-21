@@ -1,5 +1,5 @@
 
-var breed = [
+var dogBreed = [
     {
         breed: "Affenpinscher"
     },

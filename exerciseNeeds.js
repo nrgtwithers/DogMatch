@@ -1,4 +1,4 @@
-var exerciseNeeds = [
+var dogExerciseNeeds = [
     {
         energyLevel: 4,
         intensity: 3,

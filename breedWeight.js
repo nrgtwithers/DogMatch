@@ -1,5 +1,5 @@
 
-    var weight=  [
+    var dogWeight=  [
         {
             weight: "7 to 9 pounds"
         },

@@ -1,5 +1,5 @@
 
-    var lifeSpan= [
+    var dogLifeSpan= [
         {
             lifeSpan: "12 to 14 years"
         },

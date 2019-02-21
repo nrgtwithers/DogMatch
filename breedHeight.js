@@ -1,5 +1,5 @@
 
-var height = [
+var dogHeight = [
     {
         height: "9 inches to 11 inches tall at the shoulder"
     },
