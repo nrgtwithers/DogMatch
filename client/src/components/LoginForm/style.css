@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+
+form{
+    background-color: white;
+    max-width: 525px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:240px !important; 
+    border-radius: 15px;
+    padding: 30px;
+    font-family: 'Prompt', sans-serif;
+    min-height: 140px;
+}
+
+button#loginButton{
+    margin-top: 60px;
+    color:#468499 !important;
+    font-family: 'Prompt', sans-serif !important;
+    float: right;
+    border-width: 1px;
+    border-color: #468499 !important;
+    background:white !important;
+}
+
+input{
+    width: 300px;
+    float: right;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+label{
+    width: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+    form{
+        min-height: 175px !important;
+    }
+    button#loginButton {
+        margin-top: 35px !important;
+        }
+  }
