@@ -55,7 +55,7 @@ Dogs listed in the general pet.find method include shelter dogs though, so not s
 
 #### Brainstorm Quiz
 1. Pet size
-    - size of the person?
+    <!-- - size of the person? -->
     - walkability/safety aspect
     - living arrangement size issues
 2. Exercise needs

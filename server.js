@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // const MongoStore = require('connect-mongo')(session)
 // const passport = require('./passport');
 // const models = require('./models')
-const user = require('./user')
+// const user = require('./user')
 
 // // MIDDLEWARE
 // app.use(morgan('dev'))
