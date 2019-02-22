@@ -1512,3 +1512,5 @@ var generalHealth =[
           size: 1
      }
 ]
+
+module.exports = generalHealth;

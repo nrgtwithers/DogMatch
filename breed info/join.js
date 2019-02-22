@@ -6,8 +6,9 @@ const images = require ("./breedImages");
 const characteristics = require ("./breedInfo");
 const dogLifeSpan = require ("./breedLife");
 const dogWeight = require ("./breedWeight");
-const dogExerciseNeeds = require ("./exerciseNeeds")
+const dogExerciseNeeds = require ("./exerciseNeeds");
 const friendliness = require("./friendliness");
+const generalHealth = require ("./health");
 const fs = require('fs');
 
 
@@ -15,7 +16,7 @@ const fs = require('fs');
 let newArr = []
 
 dogBreed.forEach((itm, i) => {
-    newArr.push(Object.assign({}, itm, images[i],friendliness[i], dogExerciseNeeds[i],adaptability[i], category[i],  characteristics[i], dogLifeSpan[i], dogWeight[i], ))
+    newArr.push(Object.assign({}, itm, dogExerciseNeeds[i], generalHealth[i], adaptability[i], friendliness[i], ))
 })
 
 
