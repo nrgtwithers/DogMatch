@@ -14,7 +14,7 @@ function UserNav() {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link to="/howitworks" className="nav-link">How it Works</Link>
+                            <Link to="/about" className="nav-link">About</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/api/saved" className="nav-link">Saved Picks</Link>
