@@ -15,7 +15,7 @@ const fs = require('fs');
 let newArr = []
 
 dogBreed.forEach((itm, i) => {
-    newArr.push(Object.assign({}, itm, friendliness[i], dogExerciseNeeds[i],adaptability[i], category[i], images[i], characteristics[i], dogLifeSpan[i], dogWeight[i], ))
+    newArr.push(Object.assign({}, itm, images[i],friendliness[i], dogExerciseNeeds[i],adaptability[i], category[i],  characteristics[i], dogLifeSpan[i], dogWeight[i], ))
 })
 
 
