@@ -16,14 +16,14 @@ const fs = require('fs');
 let newArr = []
 
 dogBreed.forEach((itm, i) => {
-    newArr.push(Object.assign({}, itm, dogExerciseNeeds[i], generalHealth[i], adaptability[i], friendliness[i], ))
+    newArr.push(Object.assign({}, itm, images[i], dogLifeSpan[i], dogWeight[i], dogHeight[i], characteristics[i] ))
 })
 
 
 
 // console.log(dogBreedInfo);
 
-fs.writeFile("joinOutPutTwo.js",   JSON.stringify(newArr), function(err) {
+fs.writeFile("joinOutPutThree.js",   JSON.stringify(newArr), function(err) {
     if(err) {
         return console.log(err);
     }
