@@ -1,33 +1,73 @@
-import React from "react";
-import "./style.css";
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+// import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+// import Logo from '../Logo';
+// import '';
+import axios from 'axios'
 
-function UserNav() {
-    return (
-        <div>
-            <nav className="navbar navbar-trans navbar-expand-lg navbar-light bg-clear">
-                {/* <a className="navbar-brand" href="#">Navbar</a> */}
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+class Navbar extends Component {
+    constructor() {
+        super()
+        this.logout = this.logout.bind(this)
+    }
 
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li className="nav-item">
-                            <Link to="/about" className="nav-link">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/api/saved" className="nav-link">Saved Picks</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">Sign out</Link>
-                        </li>
-                    </ul>
+    logout(event) {
+        event.preventDefault()
+        console.log('logging out')
+        axios.post('/user/logout').then(response => {
+          console.log(response.data)
+          if (response.status === 200) {
+            this.props.updateUser({
+              loggedIn: false,
+              username: null
+            })
+          }
+        }).catch(error => {
+            console.log('Logout error')
+        })
+      }
 
-                </div>
-            </nav>
-        </div>
-    );
+    render() {
+        const loggedIn = this.props.loggedIn;
+        console.log('navbar render, props: ')
+        console.log(this.props);
+        
+        return (
+            <div>
+
+                <header className="navbar App-header" id="nav-container">
+                    <div className="col-4" >
+                        {loggedIn ? (
+                            <section className="navbar-section">
+                                <Link to="#" className="btn btn-link text-secondary" onClick={this.logout}>
+                                <span className="text-secondary">logout</span></Link>
+
+                            </section>
+                        ) : (
+                                <section className="navbar-section">
+                                    <Link to="/" className="btn btn-link text-secondary">
+                                        <span className="text-secondary">home</span>
+                                        </Link>
+                                    <Link to="/login" className="btn btn-link text-secondary">
+                                    <span className="text-secondary">login</span>
+				</Link>
+                                    <Link to="/signup" className="btn btn-link">
+                                    <span className="text-secondary">sign up</span>
+				</Link>
+                                </section>
+                            )}
+                    </div>
+                    <div className="col-4 col-mr-auto">
+                    <div id="top-filler"></div>
+                        <img src='https://github.com/nrgtwithers/DogMatch/blob/master/client/public/D.png?raw=true' className="App-logo" alt="logo" />
+                        {/* <h1 className="App-title">MERN Passport</h1> */}
+                    </div>
+                </header>
+            </div>
+
+        );
+
+    }
 }
 
-export default UserNav;
+export default Navbar

@@ -1,0 +1,14 @@
+.jumbotron{
+    background-color: white;
+    margin-top: 200px;
+    min-height: 350px;
+    /* margin: auto; */
+    text-align: center;
+    color: black;
+}
+
+.jum-container{
+    margin: auto;
+    /* text-align: center; */
+    max-width: 500px;
+}
