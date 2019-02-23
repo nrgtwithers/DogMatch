@@ -8,9 +8,12 @@ import Quiz from "./pages/Quiz";
 import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
 import SearchResults from "./pages/SearchResults";
+import {allNumericalInfo} from "./breed info/joinOutPutTwo";
 // import NavBar from "./components/NavBar";
 
 function App() {
+  console.log(allNumericalInfo);
+
   return (
     <Router>
       <div>

@@ -4536,3 +4536,5 @@ var allNumericalInfo =[
         dogFriendly: 3
     }
 ]
+
+export {allNumericalInfo};
