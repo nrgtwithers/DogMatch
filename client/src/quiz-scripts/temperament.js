@@ -66,12 +66,12 @@ function friendMatch() {
     //    console.log(otherDogs);
    }
 
-   let dogAffection = dogs.filter(function(friend) {
-       return friend.affectionate >= affectionWant; 
-   })
+//    let dogAffection = dogs.filter(function(friend) {
+//        return friend.affectionate >= affectionWant; 
+//    })
 
 
-console.log(dogAffection);
+// console.log(dogAffection);
 
 let temperament = otherDogs.concat(dogAffection).concat(kids);
 
