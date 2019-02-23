@@ -14,7 +14,7 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link to="/about" className="nav-link">About</Link>
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/login" className="nav-link">Login</Link>
