@@ -38,32 +38,70 @@ class Form extends Component {
 
 
         console.log(this.state.hasKids);
-            let kids;
-            let otherDogs;
+        let kids;
+        let otherDogs;
+        let familyAffection = this.state.affection;
+        let exercise = this.state.exercise;
+        let activity = this.state.activity;
 
-            if (this.state.hasKids === "true") {
-                kids = allNumericalInfo.filter(function(friend) {
-                   return friend.kidFriendlyDogs >= 4;
-               })
-               console.log(kids);
-            } else {
-               kids = allNumericalInfo.filter(function(friend) {
-                   return friend.kidFriendlyDogs >= 1;
-               })
-               console.log(kids);
-           }
 
-        //    if (this.state.dogBoo === "true") {
-        //        otherDogs = allNumericalInfo.filter(function(friend) {
-        //           return friend.dogFriendly >= 3;
-        //       })
-        //       console.log(otherDogs);
-        //   } else {
-        //       otherDogs = allNumericalInfo.filter(function(friend) {
-        //           return friend.dogFriendly >= 1;
-        //       })
-        //       console.log(otherDogs);
-        //   }
+        // the activity level
+        let activityArr = allNumericalInfo.filter(function(activityNeed) {
+            return activityNeed.energyLevel >= activity;
+        })
+
+        // the exercise level
+        let exerciseArr = allNumericalInfo.filter(function(exerciseNeed) {
+            return exerciseNeed.exerciseNeeds >= exercise;
+        });
+
+        // the affection
+
+            let dogAffection = allNumericalInfo.filter(function(friend) {
+                return friend.affectionateWFamily >= familyAffection;
+            });
+
+        // if they have kids
+        if (this.state.hasKids === "true") {
+            kids = allNumericalInfo.filter(function (friend) {
+                return friend.kidFriendlyDogs >= 4;
+            })
+            console.log(kids);
+        } else {
+            kids = allNumericalInfo.filter(function (friend) {
+                return friend.kidFriendlyDogs >= 1;
+            })
+            console.log(kids);
+        }
+
+        // if they have other dogs
+        if (this.state.hasDogs === "true") {
+            otherDogs = allNumericalInfo.filter(function (friend) {
+                return friend.dogFriendly >= 3;
+            })
+            console.log(otherDogs);
+        } else {
+            otherDogs = allNumericalInfo.filter(function (friend) {
+                return friend.dogFriendly >= 1;
+            })
+            console.log(otherDogs);
+        }
+
+        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr);
+
+        let dogResults = [];
+
+        for (var i = 0; i < temperament.length; i++) {
+            // console.log(temperament[i].breed);
+            dogResults.push(temperament[i].breed);
+        }
+
+        console.log(dogResults);
+
+        var counts = {};
+        dogResults.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+
+        console.log(counts);
     };
 
     render() {
@@ -81,10 +119,10 @@ class Form extends Component {
                                 value="true"
                                 checked={this.state.hasKids === "true"}
                                 onChange={this.handleInputChange}
-                                />
-                                I have kids
+                            />
+                            I have kids
                         </label>
-    
+
                         <label>
                             <input
                                 type="radio"
@@ -92,11 +130,35 @@ class Form extends Component {
                                 value="false"
                                 checked={this.state.hasKids === "false"}
                                 onChange={this.handleInputChange}
-                                />
-                                I don't have kids
+                            />
+                            I don't have kids
                         </label>
                     </div>
-                
+
+                    <div className="form-control">
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasDogs"
+                                value="true"
+                                checked={this.state.hasDogs === "true"}
+                                onChange={this.handleInputChange}
+                            />
+                            I have dogs
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasDogs"
+                                value="false"
+                                checked={this.state.hasDogs === "false"}
+                                onChange={this.handleInputChange}
+                            />
+                            I don't have dogs
+                        </label>
+                    </div>
+
 
                     <div className="form-control">
                         <label>Affectionate?</label>

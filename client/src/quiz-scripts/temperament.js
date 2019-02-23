@@ -71,9 +71,7 @@ function friendMatch() {
 //    })
 
 
-// console.log(dogAffection);
-
-let temperament = otherDogs.concat(dogAffection).concat(kids);
+let temperament = otherDogs.concat(kids);
 
 // count number of times each object was filtered into new array
 
