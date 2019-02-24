@@ -1,120 +1,212 @@
-import React, { Component } from 'react';
-import Logo from '../components/Logo'
-import {allNumericalInfo} from "../breed info/joinOutPutTwo.js";
-import "./quiz.css";
-// import QuizButton from '../components/QuizButton';
-// import SearchBreedsBtn from '../components/SearchBreedsBtn';
-// import { Col, Row, Container } from "../components/Grid";
+import React, { Component } from "react";
+import { allNumericalInfo } from "../breed info/joinOutPutTwo";
 
 
-class Quiz extends Component {
-    constructor(props) {
-        super(props);
+class Form extends Component {
 
-        this.state = {
-            videoURL: 'puppy.mp4'
-        }
-    }
 
-    friendMatch() {
+    // Assign state itself, and a default value for items
+    state = {
+        affection: "",
+        exercise: "",
+        activity: "",
+        hasKids: "false",
+        hasDogs: ""
+    };
 
-        // preventDefault();
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+
+        this.setState({
+            [name]: value
+        });
+    };
+
+
+    handleFormSubmit = event => {
+
+        event.preventDefault();
+
+        this.setState({
+            affection: "",
+            exercise: "",
+            activity: "",
+            hasKids: "",
+            hasDogs: ""
+        });
+
+
+        console.log(this.state.hasKids);
         let kids;
         let otherDogs;
+        let familyAffection = this.state.affection;
+        let exercise = this.state.exercise;
+        let activity = this.state.activity;
 
 
-        // values pulled from form
-        let affectionWant = document.getElementById("cuddle").value;
+        // the activity level
+        let activityArr = allNumericalInfo.filter(function(activityNeed) {
+            return activityNeed.energyLevel >= activity;
+        })
 
-        let kidBoo = document.querySelector('input[name="kidsY"]:checked').value;
+        // the exercise level
+        let exerciseArr = allNumericalInfo.filter(function(exerciseNeed) {
+            return exerciseNeed.exerciseNeeds >= exercise;
+        });
 
-        let dogBoo = document.querySelector('input[name="existDogs"]:checked').value;
+        // the affection
 
-        // filtering based on response 
+            let dogAffection = allNumericalInfo.filter(function(friend) {
+                return friend.affectionateWFamily >= familyAffection;
+            });
 
-        if (kidBoo === "true") {
+        // if they have kids
+        if (this.state.hasKids === "true") {
             kids = allNumericalInfo.filter(function (friend) {
-                return friend.goodWithKids >= 3;
+                return friend.kidFriendlyDogs >= 4;
             })
-            // console.log(kids);
+            console.log(kids);
         } else {
             kids = allNumericalInfo.filter(function (friend) {
-                return friend.goodWithKids >= 1;
+                return friend.kidFriendlyDogs >= 1;
             })
             console.log(kids);
         }
 
-        // if (dogBoo === "true") {
-        //     otherDogs = dogs.filter(function (friend) {
-        //         return friend.goodWithDogs >= 3;
-        //     })
-        //     //    console.log(otherDogs);
-        // } else {
-        //     otherDogs = dogs.filter(function (friend) {
-        //         return friend.goodWithDogs >= 1;
-        //     })
-        //     //    console.log(otherDogs);
-        // }
+        // if they have other dogs
+        if (this.state.hasDogs === "true") {
+            otherDogs = allNumericalInfo.filter(function (friend) {
+                return friend.dogFriendly >= 3;
+            })
+            console.log(otherDogs);
+        } else {
+            otherDogs = allNumericalInfo.filter(function (friend) {
+                return friend.dogFriendly >= 1;
+            })
+            console.log(otherDogs);
+        }
 
-        // let dogAffection = dogs.filter(function (friend) {
-        //     return friend.affectionate >= affectionWant;
-        // })
+        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr);
 
+        let dogResults = [];
 
-        // console.log(dogAffection);
+        for (var i = 0; i < temperament.length; i++) {
+            // console.log(temperament[i].breed);
+            dogResults.push(temperament[i].breed);
+        }
 
-        // let temperament = otherDogs.concat(dogAffection).concat(kids);
+        console.log(dogResults);
 
-        // // count number of times each object was filtered into new array
+        var counts = {};
+        dogResults.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
 
-        // console.log(temperament);
-        // let dogResults = [];
-
-        // for (var i = 0; i < temperament.length; i++) {
-        //     console.log(temperament[i].name);
-        //     dogResults.push(temperament[i].name);
-        // }
-
-        // console.log(dogResults);
-
-        // var counts = {};
-        // dogResults.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-
-        // console.log(counts);
-
-    }
+        console.log(counts);
+    };
 
     render() {
-        console.log(allNumericalInfo);
+
         return (
-            <div id="quiz">
-                <Logo />
+            <div>
 
-               <div className="form-control">
-                    <label>Do you want a cuddly dog?</label>
-                    <input type="range" min="1" max="5" className="slider" id="cuddle"></input>
+                <form className="form">
 
-               </div>
-                
-                <div className="form-control">
-                <label>Do you have kids?</label>
-                <input type="radio" name="kidsY" value="true"></input>
-                <input type="radio" name="kidsY" value="false"></input>
-                </div>
+                    <div className="form-control">
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasKids"
+                                value="true"
+                                checked={this.state.hasKids === "true"}
+                                onChange={this.handleInputChange}
+                            />
+                            I have kids
+                        </label>
 
-                <div className="form-control">
-                <label>Do you already own dogs?</label>
-                <input type="radio" name="existDogs" value="true"></input>
-                <input type="radio" name="existDogs" value="false"></input>
-                </div>
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasKids"
+                                value="false"
+                                checked={this.state.hasKids === "false"}
+                                onChange={this.handleInputChange}
+                            />
+                            I don't have kids
+                        </label>
+                    </div>
+
+                    <div className="form-control">
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasDogs"
+                                value="true"
+                                checked={this.state.hasDogs === "true"}
+                                onChange={this.handleInputChange}
+                            />
+                            I have dogs
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasDogs"
+                                value="false"
+                                checked={this.state.hasDogs === "false"}
+                                onChange={this.handleInputChange}
+                            />
+                            I don't have dogs
+                        </label>
+                    </div>
 
 
-                <button id="next" onClick="">Next</button>
+                    <div className="form-control">
+                        <label>Affectionate?</label>
+                        <input
+                            value={this.state.affection}
+                            name="affection"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            className="slider"
+                            min="1"
+                            max="5"
+                            placeholder="Affection needs"
+                        />
+                    </div>
 
+                    <div className="form-control">
+                        <label>Exercise needs?</label>
+                        <input
+                            value={this.state.exercise}
+                            name="exercise"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                            placeholder="Exercise Needs"
+                        />
+                    </div>
 
+                    <div className="form-control">
+                        <label>General activity level?</label>
+                        <input
+                            value={this.state.activity}
+                            name="activity"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            className="slider"
+                            min="1"
+                            max="5"
+                            placeholder="Activity needs"
+                        />
+                    </div>
+
+                    <button onClick={this.handleFormSubmit}>Submit</button>
+                </form>
             </div>
-        )
+        );
     }
-};
+}
 
-export default Quiz;
+export default Form;

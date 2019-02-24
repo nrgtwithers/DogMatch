@@ -13,7 +13,6 @@ import {allNumericalInfo} from "./breed info/joinOutPutTwo";
 // import NavBar from "./components/NavBar";
 
 function App() {
-  console.log(allNumericalInfo);
 
   return (
     <Router>

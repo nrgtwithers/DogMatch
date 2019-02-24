@@ -66,14 +66,12 @@ function friendMatch() {
     //    console.log(otherDogs);
    }
 
-   let dogAffection = dogs.filter(function(friend) {
-       return friend.affectionate >= affectionWant; 
-   })
+//    let dogAffection = dogs.filter(function(friend) {
+//        return friend.affectionate >= affectionWant; 
+//    })
 
 
-console.log(dogAffection);
-
-let temperament = otherDogs.concat(dogAffection).concat(kids);
+let temperament = otherDogs.concat(kids);
 
 // count number of times each object was filtered into new array
 
