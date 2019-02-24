@@ -33,14 +33,10 @@
     "http-proxy-middleware": "^0.19.1",
     "mongoose": "^5.4.14",
     "morgan": "^1.9.1",
-<<<<<<< HEAD
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7"
-=======
     "path": "^0.12.7",
     "react-radio-buttons": "^1.2.2",
     "react-radio-group": "^3.0.3"
->>>>>>> quiz-work
   }
 }

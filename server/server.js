@@ -12,7 +12,7 @@ const PORT = 3001
 const user = require('./routes/user')
 
 mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://heroku_h3g528sn:lp1ae5thuikaneoih2i2l9mvpk@ds343895.mlab.com:43895/heroku_h3g528sn",
+	process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds',
 	{ useNewUrlParser: true, autoIndex: false }
   );
 
@@ -30,7 +30,7 @@ app.use(
 	session({
 		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
 		store: new MongoStore({
-			url:  "mongodb://heroku_h3g528sn:lp1ae5thuikaneoih2i2l9mvpk@ds343895.mlab.com:43895/heroku_h3g528sn",
+			url:  'mongodb://localhost/dogBreeds',
 			autoReconnect: true
 		}),
 		resave: false, //required
