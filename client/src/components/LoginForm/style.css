@@ -1,8 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
 
 form{
     background-color: white;
-    max-width: 525px;
+    max-width: 650px;
     margin-left:auto;
     margin-right:auto;
     margin-top:240px !important; 
@@ -14,11 +14,11 @@ form{
 
 h6.login{
     color:#468499 !important;
-    font-size:25px !important;
-    text-align:center;
-    font-weight: bold;
-    padding-bottom: 20px;
-    font-family: 'Prompt', sans-serif;
+    font-size: 25px !important;
+    text-align:center !important;
+    font-weight: bold !important;
+    padding-bottom: 20px !important;
+    font-family: 'Prompt', sans-serif !important;
 }
 
 button#loginButton{

@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
 
-a.nav-link{
+section.navbar-section{
+  margin: right;
+}
+
+span.text-secondary{
     text-shadow: 1px 1px #000000;
     margin-right: 10px !important;
-    color: white !important;
+    color: black !important;
     font-weight: bold !important;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-family: 'Prompt', sans-serif;
-
+  display:inline-block;
 }
 
-a.nav-link:hover{
+a.btn.btn-link.text-secondary:hover{
     color:silver !important;
 }
 

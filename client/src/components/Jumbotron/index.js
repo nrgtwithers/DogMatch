@@ -4,7 +4,7 @@ import "./style.css";
 function Jumbotron({ children }) {
     return (
       <div
-        style={{ height: 400, clear: "both", paddingTop: 50 }}
+        style={{ height: 400, clear: "both", paddingTop: 30 }}
         className="jumbotron"
       ><div className="jum-container">
         {children}
