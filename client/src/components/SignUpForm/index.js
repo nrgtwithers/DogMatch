@@ -4,7 +4,7 @@ import "./style.css";
 function SignUpForm() {
     return (
         <div>
-        <form>
+        <form id="signupForm">
         <h6 className="signup">Sign up for an account</h6>
         <div classsName="form-group">
           <label for="userEmail">Email address</label>
