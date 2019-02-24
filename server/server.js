@@ -30,7 +30,7 @@ app.use(
 	session({
 		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
 		store: new MongoStore({
-			url:  "mongodb://localhost/dogBreeds",
+			url:  "mongodb://heroku_h3g528sn:lp1ae5thuikaneoih2i2l9mvpk@ds343895.mlab.com:43895/heroku_h3g528sn",
 			autoReconnect: true
 		}),
 		resave: false, //required
