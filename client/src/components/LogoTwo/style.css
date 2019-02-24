@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+
+h1{
+    font-size: 60px;
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Kaushan Script', cursive;
+    /* font-family: 'Prompt', sans-serif; */
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+  }
+
+   /* Add some content at the bottom of the video/page */
+   .content {
+    position: absolute;
+    top: 8%;
+    margin: auto;
+    background:transparent;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
