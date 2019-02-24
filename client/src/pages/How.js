@@ -1,19 +1,19 @@
 import React from 'react';
 import Logo from '../components/Logo';
-import AboutNav from '../components/AboutNav/index'
+import HowNav from '../components/HowNav/index'
 // import QuizButton from '../components/QuizButton';
 // import SearchBreedsBtn from '../components/SearchBreedsBtn';
 // import { Col, Row, Container } from "../components/Grid";
 
 
-function About () {
+function How () {
     
 return (
     <div>
-        <AboutNav/>
+        <HowNav/>
         <Logo />
     </div>              
         )
 };
         
-export default About;
+export default How;
