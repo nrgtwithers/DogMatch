@@ -6,7 +6,7 @@ class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
-            username: '',
+            email: '',
             password: '',
             redirectTo: null
         }
@@ -27,7 +27,7 @@ class LoginForm extends Component {
 
         axios
             .post('/user/login', {
-                username: this.state.username,
+                email: this.state.email,
                 password: this.state.password
             })
             .then(response => {
@@ -37,7 +37,7 @@ class LoginForm extends Component {
                     // update App.js state
                     this.props.updateUser({
                         loggedIn: true,
-                        username: response.data.username
+                        email: response.data.email
                     })
                     // update the state to redirect to home
                     this.setState({
@@ -60,27 +60,27 @@ class LoginForm extends Component {
                     <h6 className="login">Login</h6>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="username">Username</label>
+                            <div className="col-3 col-ml-auto">
+                                <label className="form-label" htmlFor="email">Email:</label>
                             </div>
-                            <div className="col-3 col-mr-auto">
+                            <div className="col-6 col-mr-auto">
                                 <input className="form-input"
                                     type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Username"
-                                    value={this.state.username}
+                                    id="email"
+                                    name="email"
+                                    placeholder=""
+                                    value={this.state.email}
                                     onChange={this.handleChange}
                                 />
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
+                            <div className="col-3 col-ml-auto">
+                                <label className="form-label" htmlFor="password">Password:</label>
                             </div>
-                            <div className="col-3 col-mr-auto">
+                            <div className="col-6 col-mr-auto">
                                 <input className="form-input"
-                                    placeholder="password"
+                                    placeholder=""
                                     type="password"
                                     name="password"
                                     value={this.state.password}
@@ -89,9 +89,9 @@ class LoginForm extends Component {
                             </div>
                         </div>
                         <div className="form-group ">
-                            <div className="col-7"></div>
+                            <div className="col-6"></div>
                             <button
-                                className="btn btn-primary col-1 col-mr-auto"
+                                className="signButton"
                                
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
@@ -106,56 +106,3 @@ class LoginForm extends Component {
 export default LoginForm
 
 
-// import React, { Component } from "react";
-
-// class LoginForm extends Component {
-//   // Setting the initial values of this.state.email and this.state.password
-//   state = {
-//     email: "",
-//     password: ""
-//   };
-
-//   // handle any changes to the input fields
-//   handleInputChange = event => {
-//     // Pull the name and value properties off of the event.target (the element which triggered the event)
-//     const { name, value } = event.target;
-
-//     // Set the state for the appropriate input field
-//     this.setState({
-//       [name]: value
-//     });
-//   };
-
-//   // When the form is submitted, prevent the default event and alert the email and password
-//   handleFormSubmit = event => {
-//     event.preventDefault();
-//     alert(`email: ${this.state.email}\nPassword: ${this.state.password}`);
-//     this.setState({ email: "", password: "" });
-//   };
-
-//   render() {
-//     return (
-//       <form>
-//         {/* <p>email: {this.state.email}</p>
-//         <p>Password: {this.state.password}</p> */}
-//         <input
-//           type="text"
-//           placeholder="Email"
-//           name="email"
-//           value={this.state.email}
-//           onChange={this.handleInputChange}
-//         />
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           name="password"
-//           value={this.state.password}
-//           onChange={this.handleInputChange}
-//         />
-//         <button onClick={this.handleFormSubmit}>Submit</button>
-//       </form>
-//     );
-//   }
-// }
-
-// export default LoginForm;

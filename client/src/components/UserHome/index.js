@@ -12,7 +12,7 @@ class UserHome extends Component {
         }
         return (
             <div>
-                <p>It's good to be home</p>
+                <p>You can check the saved pups you are interested in!</p>
                 <img style={imageStyle} src="https://i.ytimg.com/vi/N1icEHtgb3g/maxresdefault.jpg" />
             </div>
         )

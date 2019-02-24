@@ -17,7 +17,6 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
@@ -27,7 +26,6 @@ function App() {
           <Route exact path="/quiz/results" component={QuizResults} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/search/results" component={SearchResults} />
-          {/* <Route component={NoMatch} /> */}
         </Switch>
       </div>
     </Router>

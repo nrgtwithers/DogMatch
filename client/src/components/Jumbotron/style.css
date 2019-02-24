@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+
 .jumbotron{
     background-color: white;
-    margin-top: 200px;
+    margin-top: 150px;
     min-height: 350px;
     /* margin: auto; */
     text-align: center;
@@ -11,4 +13,35 @@
     margin: auto;
     /* text-align: center; */
     max-width: 100%;
+}
+
+h6{
+    color:#468499 !important;
+    font-size:25px !important;
+    text-align:center;
+    font-weight: bold;
+    padding-bottom: 20px;
+    font-family: 'Prompt', sans-serif;
+}
+
+form{
+    background-color: transparent;
+    max-width: 700px;
+    margin-left:auto;
+    margin-right:auto;
+    /* margin-top:px !important;  */
+    padding: 30px;
+    font-family: 'Prompt', sans-serif;
+    min-height: 350px;
+}
+
+.signButton{
+    margin-top: 40px;
+    background-color:#468499 !important;
+    font-family: 'Prompt', sans-serif !important;
+    margin-right: auto;
+    margin-left: auto;
+    border-width: 1px;
+    border-color: #468499 !important;
+    color:white !important;
 }

@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+
 .App {
   text-align: center;
+  font-family: 'Prompt', sans-serif;
 }
 
 body{
-  background-color:black;
+  background-color:#468499;
+  font-family: 'Prompt', sans-serif;
+}
+
+h6, .h6 {
+  color: #468499;
+  font-family: Arial;
+  font-weight: bold !;
+  font-size: 30px;
 }
 
 .App-logo {
