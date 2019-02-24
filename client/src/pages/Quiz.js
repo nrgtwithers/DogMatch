@@ -10,8 +10,14 @@ class Form extends Component {
         affection: "",
         exercise: "",
         activity: "",
-        hasKids: "false",
-        hasDogs: ""
+        hasKids: "",
+        hasDogs: "",
+        houseSize: "",
+        experience: "",
+        sensitivity: "",
+        aloneTime: "",
+        cold: "",
+        hot: ""
     };
 
 
@@ -33,7 +39,13 @@ class Form extends Component {
             exercise: "",
             activity: "",
             hasKids: "",
-            hasDogs: ""
+            hasDogs: "",
+            houseSize: "",
+            experience: "",
+            sensitivity: "",
+            aloneTime: "",
+            cold: "",
+            hot: ""
         });
 
 
@@ -43,23 +55,55 @@ class Form extends Component {
         let familyAffection = this.state.affection;
         let exercise = this.state.exercise;
         let activity = this.state.activity;
+        let houseSize = this.state.houseSize;
+        let houseArr;
+        let experience;
+        let sensitivity;
+        let aloneTolerance = this.state.aloneTime;
+        let aloneArr;
+        let coldTolerate = this.state.cold;
+        let hotTolerate = this.state.hot;
 
+        // houseSize
+        if (houseSize === "houseYard") {
+            houseArr = allNumericalInfo.filter(function (house) {
+                return house.apartmentLiving >= 1;
+            })
+        } else if (houseSize = "houseNoYard") {
+            houseArr = allNumericalInfo.filter(function (house) {
+                return house.apartmentLiving >= 3;
+            })
+        } else {
+            houseArr = allNumericalInfo.filter(function (house) {
+                return house.apartmentLiving >= 5;
+            })
+        }
 
         // the activity level
-        let activityArr = allNumericalInfo.filter(function(activityNeed) {
+        let activityArr = allNumericalInfo.filter(function (activityNeed) {
             return activityNeed.energyLevel >= activity;
         })
 
         // the exercise level
-        let exerciseArr = allNumericalInfo.filter(function(exerciseNeed) {
+        let exerciseArr = allNumericalInfo.filter(function (exerciseNeed) {
             return exerciseNeed.exerciseNeeds >= exercise;
         });
 
+        // cold weather
+        let coldTolerance = allNumericalInfo.filter(function(res) {
+            return res.toleratesColdWeather >= coldTolerate;
+        })
+
+        // hot weather
+        let hotTolerance = allNumericalInfo.filter(function(res) {
+            return res.toleratesHotWeather >= hotTolerate;
+        })
+
         // the affection
 
-            let dogAffection = allNumericalInfo.filter(function(friend) {
-                return friend.affectionateWFamily >= familyAffection;
-            });
+        let dogAffection = allNumericalInfo.filter(function (friend) {
+            return friend.affectionateWFamily >= familyAffection;
+        });
 
         // if they have kids
         if (this.state.hasKids === "true") {
@@ -87,7 +131,33 @@ class Form extends Component {
             console.log(otherDogs);
         }
 
-        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr);
+        // experience level
+        let experienceArr = allNumericalInfo.filter(function (exp) {
+            return exp.goodForNoviceOwners >= experience;
+        })
+
+        // sensitivity - how chaotic
+        let sensitivityArr = allNumericalInfo.filter(function (sens) {
+            return sens.sensitivityLevel <= sensitivity;
+        })
+
+        // time alone
+        if (aloneTolerance === "fullTime") {
+            aloneArr = allNumericalInfo.filter(function (res) {
+                return res.toleratesBeingAlone <= 1;
+            })
+        } else if (aloneTolerance === "partTime") {
+            aloneArr = allNumericalInfo.filter(function (res) {
+                return res.toleratesBeingAlone <= 3;
+            })
+        } else {
+            aloneArr = allNumericalInfo.filter(function (res) {
+                return res.toleratesBeingAlone <= 5;
+            })
+        }
+
+
+        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr).concat(houseArr).concat(experienceArr).concat(sensitivityArr).concat(aloneArr).concat(coldTolerance).concat(hotTolerance);
 
         let dogResults = [];
 
@@ -110,6 +180,129 @@ class Form extends Component {
             <div>
 
                 <form className="form">
+
+                <div className="form-control">
+                        <label>Is cold weather common where you are?</label>
+                        <input
+                            value={this.state.cold}
+                            name="cold"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+
+                    <div className="form-control">
+                        <label>Is hot weather common where you are?</label>
+                        <input
+                            value={this.state.hot}
+                            name="hot"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+
+                    <div className="form-control">
+                        <label>Time alone?
+                            <input
+                                type="radio"
+                                name="aloneTime"
+                                value="fullTime"
+                                checked={this.state.aloneTime === "fullTime"}
+                                onChange={this.handleInputChange}
+                            />
+                            Full-Time (40+ hours)
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="aloneTime"
+                                value="partTime"
+                                checked={this.state.aloneTime === "partTime"}
+                                onChange={this.handleInputChange}
+                            />
+                            Part Time (less than 40 hours)
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="aloneTime"
+                                value="dogcare"
+                                checked={this.state.aloneTime === "dogcare"}
+                                onChange={this.handleInputChange}
+                            />
+                            Dog Care (whether doggy daycare or staying at home)
+                        </label>
+                    </div>
+
+                    <div className="form-control">
+                        <label>Dog experience?</label>
+                        <input
+                            value={this.state.experience}
+                            name="experience"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+
+                    <div className="form-control">
+                        <label>How hectic is your life? REPHRASE</label>
+                        <input
+                            value={this.state.sensitivity}
+                            name="sensitivity"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+
+
+                    <div className="form-control">
+                        <label>
+                            <input
+                                type="radio"
+                                name="houseSize"
+                                value="houseYard"
+                                checked={this.state.houseSize === "houseYard"}
+                                onChange={this.handleInputChange}
+                            />
+                            House with a yard
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="houseSize"
+                                value="houseNoYard"
+                                checked={this.state.houseSize === "houseNoYard"}
+                                onChange={this.handleInputChange}
+                            />
+                            House with no yard
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="houseSize"
+                                value="apartment"
+                                checked={this.state.houseSize === "apartment"}
+                                onChange={this.handleInputChange}
+                            />
+                            Apartment
+                        </label>
+                    </div>
 
                     <div className="form-control">
                         <label>
