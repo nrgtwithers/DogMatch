@@ -17,7 +17,11 @@ class Form extends Component {
         sensitivity: "",
         aloneTime: "",
         cold: "",
-        hot: ""
+        hot: "",
+        dogSize: "",
+        shedding: "",
+        grooming: "",
+        healthNeed: ""
     };
 
 
@@ -45,11 +49,14 @@ class Form extends Component {
             sensitivity: "",
             aloneTime: "",
             cold: "",
-            hot: ""
+            hot: "",
+            dogSize: "",
+            shedding: "",
+            grooming: "",
+            healthNeed: ""
+
         });
 
-
-        console.log(this.state.hasKids);
         let kids;
         let otherDogs;
         let familyAffection = this.state.affection;
@@ -63,19 +70,53 @@ class Form extends Component {
         let aloneArr;
         let coldTolerate = this.state.cold;
         let hotTolerate = this.state.hot;
+        let sizeArr;
+        let sizeArrMult;
+        let dogSize = this.state.dogSize;
+        let shed = this.state.shedding;
+        let grooming = this.state.grooming;
+        let health = this.state.healthNeed;
+        let healthArr;
+
+        // general health
+        if (health === "yes") {
+            healthArr = allNumericalInfo.filter(function(res) {
+                return res.generalHealth === 1;
+            })
+        } else if (health === "somewhat") {
+            healthArr = allNumericalInfo.filter(function(res) {
+                return res.generalHealth >= 2;
+            })
+        } else {
+            healthArr = allNumericalInfo.filter(function(res) {
+                return res.generalHealth >= 4;
+            })
+        }
+
+        healthArr = healthArr.concat(healthArr).concat(healthArr).concat(healthArr).concat(healthArr);
+
+        // grooming
+        let groomingArr = allNumericalInfo.filter(function(res) {
+            return res.easyGrooming >= grooming;
+        })
+
+        // shedding
+        let sheddingArr = allNumericalInfo.filter(function(res) {
+            return res.shedding >= shed;
+        })
 
         // houseSize
         if (houseSize === "houseYard") {
             houseArr = allNumericalInfo.filter(function (house) {
-                return house.apartmentLiving >= 1;
+                return house.apartmentLiving <= 2;
             })
-        } else if (houseSize = "houseNoYard") {
+        } else if (houseSize === "houseNoYard") {
             houseArr = allNumericalInfo.filter(function (house) {
-                return house.apartmentLiving >= 3;
+                return house.apartmentLiving <= 4;
             })
         } else {
             houseArr = allNumericalInfo.filter(function (house) {
-                return house.apartmentLiving >= 5;
+                return house.apartmentLiving === 5;
             })
         }
 
@@ -110,12 +151,10 @@ class Form extends Component {
             kids = allNumericalInfo.filter(function (friend) {
                 return friend.kidFriendlyDogs >= 4;
             })
-            console.log(kids);
         } else {
             kids = allNumericalInfo.filter(function (friend) {
                 return friend.kidFriendlyDogs >= 1;
             })
-            console.log(kids);
         }
 
         // if they have other dogs
@@ -123,12 +162,10 @@ class Form extends Component {
             otherDogs = allNumericalInfo.filter(function (friend) {
                 return friend.dogFriendly >= 3;
             })
-            console.log(otherDogs);
         } else {
             otherDogs = allNumericalInfo.filter(function (friend) {
                 return friend.dogFriendly >= 1;
             })
-            console.log(otherDogs);
         }
 
         // experience level
@@ -140,6 +177,8 @@ class Form extends Component {
         let sensitivityArr = allNumericalInfo.filter(function (sens) {
             return sens.sensitivityLevel <= sensitivity;
         })
+
+        sensitivityArr = sensitivityArr.concat(sensitivityArr).concat(sensitivityArr).concat(sensitivityArr).concat(sensitivityArr);
 
         // time alone
         if (aloneTolerance === "fullTime") {
@@ -156,17 +195,32 @@ class Form extends Component {
             })
         }
 
+        // size of dog
+        if (dogSize === "large") {
+            sizeArr = allNumericalInfo.filter(function(res) {
+                return res.size === 5;
+            })
+        } else if (dogSize === "medium") {
+            sizeArr = allNumericalInfo.filter(function(res) {
+                return res.size === 3 || res.size === 4;
+            })
+        } else {
+            sizeArr = allNumericalInfo.filter(function(res) {
+                return res.size === 1 || res.size === 2;
+            })
+        }
 
-        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr).concat(houseArr).concat(experienceArr).concat(sensitivityArr).concat(aloneArr).concat(coldTolerance).concat(hotTolerance);
+        // tripling names of dogs that fit the size need, because it should be weighed heavier as a qualifier for pet owners
+        sizeArrMult = sizeArr.concat(sizeArr).concat(sizeArr).concat(sizeArr).concat(sizeArr);
+
+
+        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr).concat(houseArr).concat(experienceArr).concat(sensitivityArr).concat(aloneArr).concat(coldTolerance).concat(hotTolerance).concat(sizeArrMult).concat(sheddingArr).concat(groomingArr).concat(healthArr);
 
         let dogResults = [];
 
         for (var i = 0; i < temperament.length; i++) {
-            // console.log(temperament[i].breed);
             dogResults.push(temperament[i].breed);
         }
-
-        console.log(dogResults);
 
         var counts = {};
         dogResults.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
@@ -180,6 +234,78 @@ class Form extends Component {
             <div>
 
                 <form className="form">
+
+                <div className="form-control">
+                        <label>
+                            <input
+                                type="radio"
+                                name="dogSize"
+                                value="large"
+                                checked={this.state.dogSize === "large"}
+                                onChange={this.handleInputChange}
+                            />
+                            Large
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="dogSize"
+                                value="medium"
+                                checked={this.state.dogSize === "medium"}
+                                onChange={this.handleInputChange}
+                            />
+                            Medium
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="dogSize"
+                                value="small"
+                                checked={this.state.dogSize === "small"}
+                                onChange={this.handleInputChange}
+                            />
+                            Small
+                        </label>
+                    </div>
+                
+                    <div className="form-control">
+                        <label>
+                            <input
+                                type="radio"
+                                name="healthNeed"
+                                value="yes"
+                                checked={this.state.healthNeed === "yes"}
+                                onChange={this.handleInputChange}
+                            />
+                            Yes
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="healthNeed"
+                                value="somewhat"
+                                checked={this.state.healthNeed === "somewhat"}
+                                onChange={this.handleInputChange}
+                            />
+                            Somewhat
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="healthNeed"
+                                value="no"
+                                checked={this.state.healthNeed === "no"}
+                                onChange={this.handleInputChange}
+                            />
+                            No
+                        </label>
+                    </div>
+
+                
 
                 <div className="form-control">
                         <label>Is cold weather common where you are?</label>
@@ -256,10 +382,36 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>How hectic is your life? REPHRASE</label>
+                        <label>How chaotic is your life? (Daily routine, childcare, noise level)</label>
                         <input
                             value={this.state.sensitivity}
                             name="sensitivity"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+
+                    <div className="form-control">
+                        <label>How much shedding can you handle?</label>
+                        <input
+                            value={this.state.shedding}
+                            name="shedding"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                    </div>
+
+                    <div className="form-control">
+                        <label>How easy should grooming be?</label>
+                        <input
+                            value={this.state.grooming}
+                            name="grooming"
                             onChange={this.handleInputChange}
                             type="range"
                             class="slider"
