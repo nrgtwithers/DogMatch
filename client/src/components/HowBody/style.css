@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
+
+#container {
+    /* background-color: transparent !important; */
+    position:absolute;
+    top:19%;
+    padding: 10px;
+    margin: 20px;
+    color: white !important;
+    font-weight: bold !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Prompt', sans-serif;
+    text-shadow: 1px 1px #000000;
+  }
+
+  .questions {
+    /* font-style: italic; */
+    font-family: 'Kaushan Script', cursive;
+  }
+
+  h3{
+    font-family: 'Kaushan Script', cursive;
+
+  }
+
+
+
