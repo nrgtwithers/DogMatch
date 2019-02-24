@@ -14,7 +14,7 @@ class SignUp extends Component {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      email: null
     }
 
     this.getUser = this.getUser.bind(this)
@@ -39,13 +39,13 @@ class SignUp extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          email: response.data.user.email
         })
       } else {
         console.log('Get user: no user');
         this.setState({
           loggedIn: false,
-          username: null
+          email: null
         })
       }
     })
@@ -59,7 +59,7 @@ class SignUp extends Component {
         <Jumbotron>
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
-          <h5>Welcome {this.state.username} to DogMatch.com!</h5>
+          <h5>Welcome {this.state.email} to DogMatch.com!</h5>
         }
         {/* Routes to different components */}
         <Route
