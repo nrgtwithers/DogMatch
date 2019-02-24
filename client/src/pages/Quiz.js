@@ -111,6 +111,41 @@ class Form extends Component {
 
                 <form className="form">
 
+                <div className="form-control">
+                        <label>What type of residence do you live in?
+                            <input
+                                type="radio"
+                                name="hasKids"
+                                value="true"
+                                checked={this.state.hasKids === "true"}
+                                onChange={this.handleInputChange}
+                            />
+                            House w/ yard
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasKids"
+                                value="false"
+                                checked={this.state.hasKids === "false"}
+                                onChange={this.handleInputChange}
+                            />
+                            House without yard
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="hasKids"
+                                value="false"
+                                checked={this.state.hasKids === "false"}
+                                onChange={this.handleInputChange}
+                            />
+                            Apartment
+                        </label>
+                    </div>
+
                     <div className="form-control">
                         <label>
                             <input
