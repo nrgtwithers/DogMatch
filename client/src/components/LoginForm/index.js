@@ -4,8 +4,8 @@ import "./style.css";
 function LoginForm() {
     return (
         <div>
-        <form>
-          <h6 class="login">Login to your account</h6>
+        <form id="login">
+          <h6 class="login-header">Login to your account</h6>
         <div classsName="form-group">
           <label for="userEmail">Email address</label>
           <input type="email" classsName="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
