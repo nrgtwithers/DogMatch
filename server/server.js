@@ -17,7 +17,7 @@ const user = require('./routes/user')
 //   );
 var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds'
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, autoIndex: false })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useMongoClient: true, autoIndex: false })
 
 // MIDDLEWARE
 app.use(morgan('dev'))
