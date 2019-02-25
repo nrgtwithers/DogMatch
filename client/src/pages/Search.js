@@ -10,8 +10,20 @@ class Search extends Component {
         super(props);
 
         this.state = {
-            videoURL: 'puppy.mp4'
+          searchQuery: '',
+
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+        })
+    }
+    handleSubmit(event) {
+        console.log(`The breed your searching is ${this.state.searchQuery}`)
+		event.preventDefault()
     }
 
     render() {
@@ -31,8 +43,8 @@ class Search extends Component {
                             <div className='col-md-6'>
                                 <div className='search-box'>
                                     <form className='search-form'>
-                                        <span><input className='form-control' placeholder='ex: German Shepherd, Bichon Frise, Lab.' type='text'/>
-                                            <button className='signButton'>
+                                        <span><input className='form-control' placeholder='ex: German Shepherd, Bichon Frise, Lab.' type='text' onChange={this.handleChange} value={this.state.searchQuery} />
+                                            <button onClick={this.state.handleSubmit} className='signButton'>
                                             Search <i class="fas fa-search"></i>
                                             </button></span>
         </form>
