@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
 
-form{
+#signUp {
     background-color: white;
     max-width: 525px;
     margin-left:auto;
@@ -38,7 +38,7 @@ button#loginButton{
     background:white !important;
 }
 
-input{
+#signUp input{
     width: 300px;
     float: right;
     border: 0;
@@ -47,7 +47,7 @@ input{
     border-bottom: 1px solid black;
 }
 
-label{
+signUp label{
     width: 120px;
 }
 
