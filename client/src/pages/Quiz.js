@@ -245,6 +245,7 @@ class Form extends Component {
                                 onChange={this.handleInputChange}
                             />
                             House w/ yard
+                        </label>
                         <label>
                             <input
                                 type="radio"
@@ -277,7 +278,7 @@ class Form extends Component {
                             />
                             Small
                         </label>
-                </div></div>
+                </div>
                 
                     <div className="form-control">
                         <label>
