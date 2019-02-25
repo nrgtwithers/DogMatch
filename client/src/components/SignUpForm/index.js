@@ -49,15 +49,17 @@ class SignUpForm extends Component {
 
 
 	render() {
-			return (
-				<div className="SignupForm">
-					<h6>Sign up</h6>
-					<form className="form-horizontal">
-						<div className="form-group">
-							<div className="col-4 col-ml-auto">
+		return (
+			<div className="SignupForm">
+				<h6>Sign up</h6>
+				<form className="form-horizontal">
+					<div className="form-group">
+						<div className="row">
+							<div className="col-md-4"></div>
+							<div className="col-md-4">
 								<label className="form-label" htmlFor="email">Email:</label>
 							</div>
-							<div className="col-8 col-mr-auto">
+							<div className="col-12">
 								<input className="form-input"
 									type="text"
 									id="email"
@@ -68,11 +70,14 @@ class SignUpForm extends Component {
 								/>
 							</div>
 						</div>
-						<div className="form-group">
-							<div className="col-4 col-ml-auto">
+					</div>
+					<div className="form-group">
+						<div className="row">
+							<div className="col-md-4"></div>
+							<div className="col-md-4">
 								<label className="form-label" htmlFor="password">Password: </label>
 							</div>
-							<div className="col-8 col-mr-auto">
+							<div className="col-12">
 								<input className="form-input"
 									placeholder=""
 									type="password"
@@ -82,19 +87,20 @@ class SignUpForm extends Component {
 								/>
 							</div>
 						</div>
-						<div className="form-group ">
-							<div className="col-6"></div>
-							<button
-								className="signButton"
-								onClick={this.handleSubmit}
-								type="submit"
-							>Sign up</button>
-						</div>
-					</form>
-				</div>
+					</div>
+					<div className="form-group ">
+						<div className="col-6"></div>
+						<button
+							className="signButton"
+							onClick={this.handleSubmit}
+							type="submit"
+						>Sign up</button>
+					</div>
+				</form>
+			</div>
 
-			)
-		}
+		)
 	}
+}
 
-	export default SignUpForm;
+export default SignUpForm;

@@ -60,10 +60,12 @@ class LoginForm extends Component {
                     <h6 className="login">Login</h6>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <div className="col-3 col-ml-auto">
+                        <div className="row">
+							<div className="col-md-4"></div>
+                            <div className="col-md-4">
                                 <label className="form-label" htmlFor="email">Email:</label>
                             </div>
-                            <div className="col-6 col-mr-auto">
+                            <div className="col-md-12">
                                 <input className="form-input"
                                     type="text"
                                     id="email"
@@ -74,11 +76,14 @@ class LoginForm extends Component {
                                 />
                             </div>
                         </div>
+                        </div>
                         <div className="form-group">
-                            <div className="col-3 col-ml-auto">
+                        <div className="row">
+							<div className="col-md-4"></div>
+                            <div className="col-md-4">
                                 <label className="form-label" htmlFor="password">Password:</label>
                             </div>
-                            <div className="col-6 col-mr-auto">
+                            <div className="col-md-12">
                                 <input className="form-input"
                                     placeholder=""
                                     type="password"
@@ -86,6 +91,7 @@ class LoginForm extends Component {
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                 />
+                            </div>
                             </div>
                         </div>
                         <div className="form-group ">
