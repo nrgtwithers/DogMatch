@@ -11,10 +11,13 @@ const PORT = 3001
 // Route requires
 const user = require('./routes/user')
 
-mongoose.connect(
-	process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds',
-	{ useNewUrlParser: true, autoIndex: false }
-  );
+// mongoose.connect(
+// 	process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds',
+// 	{ useNewUrlParser: true, autoIndex: false }
+//   );
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds'
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, autoIndex: false })
 
 // MIDDLEWARE
 app.use(morgan('dev'))
