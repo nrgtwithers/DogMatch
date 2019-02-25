@@ -4,8 +4,8 @@ import "./style.css";
 
 function howBody() {
     return (
-        <div id="container">
-        <h1>How Dog Match Works!</h1>
+        <div id="how-container">
+        <h1 className="How">How Dog Match Works!</h1>
         <p>Welcome to Dog Match! We understand that finding your perfect furry mate can seem overwhelming. Often times we forget to take into account factors that may lead to a difficult transition for us and our new pets.  For example:  </p>
         <ul className = "questions">
                 <li className="question">
@@ -32,6 +32,8 @@ function howBody() {
                 <li className="directions">
                 </li>
             </ol>
+            <hr />
+            <h1 className="How">Watch the instructional video!</h1>
         </div>
     );
 }
