@@ -1,3 +1,38 @@
+// to do
+
+// make sure all questions are giving right answers
+    // done
+    /*
+        affection: "", ---
+        exercise: "", ---
+        activity: "", ---
+        hasKids: "", ---
+        hasDogs: "", ---
+        houseSize: "", ---
+        experience: "", ---
+        sensitivity: "", ---
+        aloneTime: "", ---
+        cold: "",
+        hot: "",
+        dogSize: "",
+        shedding: "",
+        grooming: "",
+        healthNeed: "", ---
+        playful: "",
+        intense: "" ---
+
+        CHECKER
+        console.log(aloneTolerance);
+        console.log(allNumericalInfo);
+        console.log(aloneArr);
+    */
+// add all questions from dataset
+// split results up by the size of the dog
+    // have a final result divided by size of dogs
+    // have option for dogs of other sizes if there's not enough good matches outside of dog size
+// take top 3-4 results, send breed name to petfinder and get a couple results back
+// split quiz questions into separate file for cleanliness' sake
+
 import React, { Component } from "react";
 import { allNumericalInfo } from "../breed info/joinOutPutTwo";
 
@@ -21,7 +56,9 @@ class Form extends Component {
         dogSize: "",
         shedding: "",
         grooming: "",
-        healthNeed: ""
+        healthNeed: "",
+        playful: "",
+        intense: ""
     };
 
 
@@ -53,7 +90,9 @@ class Form extends Component {
             dogSize: "",
             shedding: "",
             grooming: "",
-            healthNeed: ""
+            healthNeed: "",
+            playful: "",
+            intense: ""
 
         });
 
@@ -64,8 +103,8 @@ class Form extends Component {
         let activity = this.state.activity;
         let houseSize = this.state.houseSize;
         let houseArr;
-        let experience;
-        let sensitivity;
+        let dogExperience = this.state.experience
+        let dogSensitivity = this.state.sensitivity;
         let aloneTolerance = this.state.aloneTime;
         let aloneArr;
         let coldTolerate = this.state.cold;
@@ -77,6 +116,30 @@ class Form extends Component {
         let grooming = this.state.grooming;
         let health = this.state.healthNeed;
         let healthArr;
+        let playRating = this.state.playful;
+        let playArr;
+        let intenseRating = this.state.intense;
+
+        // intensity
+        let intensityArr = allNumericalInfo.filter(function(res) {
+            return res.intensity >= intenseRating;
+        })
+
+        // playfulness
+        if (playRating === "highest") {
+            playArr = allNumericalInfo.filter(function(res) {
+                return res.potentiaForPlayfulness === 5;
+            })
+        } else if (playRating === "middle") {
+            playArr = allNumericalInfo.filter(function(res) {
+                return res.potentiaForPlayfulness >= 3;
+            })
+        } else {
+            playArr = allNumericalInfo.filter(function(res) {
+                return res.potentiaForPlayfulness >= 2;
+            })
+        }
+
 
         // general health
         if (health === "yes") {
@@ -141,7 +204,6 @@ class Form extends Component {
         })
 
         // the affection
-
         let dogAffection = allNumericalInfo.filter(function (friend) {
             return friend.affectionateWFamily >= familyAffection;
         });
@@ -160,7 +222,7 @@ class Form extends Component {
         // if they have other dogs
         if (this.state.hasDogs === "true") {
             otherDogs = allNumericalInfo.filter(function (friend) {
-                return friend.dogFriendly >= 3;
+                return friend.dogFriendly >= 4;
             })
         } else {
             otherDogs = allNumericalInfo.filter(function (friend) {
@@ -169,29 +231,44 @@ class Form extends Component {
         }
 
         // experience level
-        let experienceArr = allNumericalInfo.filter(function (exp) {
-            return exp.goodForNoviceOwners >= experience;
+        let experienceArr = allNumericalInfo.filter(function(exp) {
+            return exp.goodForNoviceOwners >= dogExperience;
         })
 
         // sensitivity - how chaotic
-        let sensitivityArr = allNumericalInfo.filter(function (sens) {
-            return sens.sensitivityLevel <= sensitivity;
+        let sensitivityArr = allNumericalInfo.filter(function(res) {
+            return res.sensitivityLevel < dogSensitivity;
         })
+
+        // time alone
+        if (dogSensitivity === "very") {
+            sensitivityArr = allNumericalInfo.filter(function (res) {
+                return res.sensitivityLevel <= 2 ;
+            })
+        } else if (dogSensitivity === "moderately") {
+            sensitivityArr = allNumericalInfo.filter(function (res) {
+                return res.sensitivityLevel <= 4;
+            })
+        } else {
+            sensitivityArr = allNumericalInfo.filter(function (res) {
+                return res.sensitivityLevel <= 5;
+            })
+        }
 
         sensitivityArr = sensitivityArr.concat(sensitivityArr).concat(sensitivityArr).concat(sensitivityArr).concat(sensitivityArr);
 
         // time alone
         if (aloneTolerance === "fullTime") {
             aloneArr = allNumericalInfo.filter(function (res) {
-                return res.toleratesBeingAlone <= 1;
+                return res.toleratesBeingAlone >= 5;
             })
         } else if (aloneTolerance === "partTime") {
             aloneArr = allNumericalInfo.filter(function (res) {
-                return res.toleratesBeingAlone <= 3;
+                return res.toleratesBeingAlone >= 2;
             })
         } else {
             aloneArr = allNumericalInfo.filter(function (res) {
-                return res.toleratesBeingAlone <= 5;
+                return res.toleratesBeingAlone >= 5;
             })
         }
 
@@ -216,7 +293,7 @@ class Form extends Component {
         sizeArrMult = sizeArr.concat(sizeArr).concat(sizeArr).concat(sizeArr).concat(sizeArr);
 
 
-        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr).concat(houseArr).concat(experienceArr).concat(sensitivityArr).concat(aloneArr).concat(coldTolerance).concat(hotTolerance).concat(sizeArrMult).concat(sheddingArr).concat(groomingArr).concat(healthArr);
+        let temperament = otherDogs.concat(kids).concat(dogAffection).concat(activityArr).concat(exerciseArr).concat(houseArr).concat(experienceArr).concat(sensitivityArr).concat(aloneArr).concat(coldTolerance).concat(hotTolerance).concat(sizeArrMult).concat(sheddingArr).concat(groomingArr).concat(healthArr).concat(playArr).concat(intensityArr);
 
         let dogResults = [];
 
@@ -229,7 +306,7 @@ class Form extends Component {
 
 
 
-        console.log(counts);
+        // console.log(counts);
 
         function getFirst(o){
             var vals = [];    
@@ -253,9 +330,9 @@ class Form extends Component {
         delete counts[secondPlace];
         let thirdPlace = getFirst(counts);
         
-        console.log(firstPlace);
-        console.log(secondPlace);
-        console.log(thirdPlace);
+        // console.log(firstPlace);
+        // console.log(secondPlace);
+        // console.log(thirdPlace);
 
     };
 
@@ -302,7 +379,7 @@ class Form extends Component {
                     </div>
                 
                     <div className="form-control">
-                        <label>
+                        <label>Are you willing and able to to care for with a pet with genetic health issues?
                             <input
                                 type="radio"
                                 name="healthNeed"
@@ -413,16 +490,51 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>How chaotic is your life? (Daily routine, childcare, noise level)</label>
+                        <label>Intensity level?</label>
                         <input
-                            value={this.state.sensitivity}
-                            name="sensitivity"
+                            value={this.state.intense}
+                            name="intense"
                             onChange={this.handleInputChange}
                             type="range"
                             class="slider"
                             min="1"
                             max="5"
                         />
+                    </div>
+
+                    <div className="form-control">
+                        <label>How chaotic is your life?
+                            <input
+                                type="radio"
+                                name="sensitivity"
+                                value="very"
+                                checked={this.state.sensitivity === "very"}
+                                onChange={this.handleInputChange}
+                            />
+                            Very
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="sensitivity"
+                                value="moderately"
+                                checked={this.state.sensitivity === "moderately"}
+                                onChange={this.handleInputChange}
+                            />
+                            Moderately
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="sensitivity"
+                                value="little"
+                                checked={this.state.sensitivity === "little"}
+                                onChange={this.handleInputChange}
+                            />
+                            Little
+                        </label>
                     </div>
 
                     <div className="form-control">
@@ -563,7 +675,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>General activity level?</label>
+                        <label>General energy level?</label>
                         <input
                             value={this.state.activity}
                             name="activity"
@@ -574,6 +686,41 @@ class Form extends Component {
                             max="5"
                             placeholder="Activity needs"
                         />
+                    </div>
+
+                    <div className="form-control">
+                        <label>Playfulness?
+                            <input
+                                type="radio"
+                                name="playful"
+                                value="highest"
+                                checked={this.state.playful === "highest"}
+                                onChange={this.handleInputChange}
+                            />
+                            Super playful
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="playful"
+                                value="middle"
+                                checked={this.state.playful === "middle"}
+                                onChange={this.handleInputChange}
+                            />
+                            average playfulness
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="playful"
+                                value="lowest"
+                                checked={this.state.playful === "lowest"}
+                                onChange={this.handleInputChange}
+                            />
+                            not very playful
+                        </label>
+
+                    
                     </div>
 
                     <button onClick={this.handleFormSubmit}>Submit</button>
