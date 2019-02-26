@@ -35,6 +35,7 @@
 import React, { Component } from "react";
 import { allNumericalInfo } from "../breed info/joinOutPutTwo";
 import { func } from "prop-types";
+import UserNav from "../components/UserNav";
 
 
 class Form extends Component {
@@ -136,8 +137,6 @@ class Form extends Component {
             })
         }
 
-        // healthArr = healthArr.concat(healthArr).concat(healthArr).concat(healthArr).concat(healthArr);
-
         // grooming
         let groomingArr = allNumericalInfo.filter(function(res) {
             return res.easyGrooming >= grooming;
@@ -235,8 +234,6 @@ class Form extends Component {
             })
         }
 
-        // sensitivityArr = sensitivityArr.concat(sensitivityArr).concat(sensitivityArr).concat(sensitivityArr).concat(sensitivityArr);
-
         // time alone
         if (aloneTolerance === "fullTime") {
             aloneArr = allNumericalInfo.filter(function (res) {
@@ -305,7 +302,7 @@ class Form extends Component {
             var max = Math.max.apply(null, vals);
         
              for(var i in o){
-                if(o[i] == max){
+                if(o[i] === max){
                     return i;
                 }
             }
@@ -329,8 +326,11 @@ class Form extends Component {
 
         return (
             <div>
+               <div id="quiz-header">
+                    <UserNav></UserNav>
+               </div>
 
-                <form className="form">
+                <form className="form" id="quiz-form">
 
                 <div className="form-control">
                         <label>
