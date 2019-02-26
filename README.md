@@ -11,15 +11,14 @@ It will also, allow them to see local rescues and breeders of the perfect canine
 
 ### Roles
 
-- **Nina**: Work on setting up MongoDB, Sequelize-Passport, and overall setup (Frontend)
-- **Jalia**: Work on Quiz, and utilizing the Petfinder API.
-- **Fernanda**: Scrape all data needed to create the app.
-- **Mungunu**: Work on using Google Maps API and integrating it with the data for Breeders/Rescues for dogs searched.
+- **Nina**: Work on setting up MongoDB (Saved favs to user accounts, Set up user schema to allow name and location?, Figure out set up with map.)
+- **Jalia**: Finish up Quiz (Populate results, & do styling), and utilizing the Petfinder API?
+- **Fernanda**: Finish How page w/ video & work on presentation (Canva or Prism)
+- **Mungunu**: Work on using Google Maps API and integrating it with petfinder API.
 
 ### Tasks (Everyone for their section)
-1. Pseudocode everything!
+
 1. Work on Branches, communicate merges.
-1. Set up Frontend / UI
 1. Create / Connect all Backend
 1. Test & Debug
 1. Push changes to branch / If approved merge master.
@@ -36,9 +35,6 @@ It will also, allow them to see local rescues and breeders of the perfect canine
 - Bootstrap
 
 ---
-
-#### API Key
-- 300cb21456a9656c61757fb75d958a79
 
 Will work with Fetch, as opposed to AJAX
  
