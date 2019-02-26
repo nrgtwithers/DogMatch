@@ -20,3 +20,18 @@ strong{
 li.list-group-item{
     padding: 30px;
 }
+
+button#search{
+    margin-top: 60px;
+    color:#468499 !important;
+    font-family: 'Prompt', sans-serif !important;
+    float: right;
+    border-width: 1px;
+    border-color: #468499 !important;
+    background:white !important;
+}
+
+button#search:hover{
+    color:white !important;
+    background-color:#468499 !important;
+}
