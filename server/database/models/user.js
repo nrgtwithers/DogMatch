@@ -5,10 +5,10 @@ mongoose.promise = Promise
 
 // Define userSchema
 const userSchema = new Schema({
-
+	name: {type: String, unique: false, required: false},
+	location: {type: String, unique: false, required: false},
 	email: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false }
-
 })
 
 // Define schema methods

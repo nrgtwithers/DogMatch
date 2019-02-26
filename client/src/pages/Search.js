@@ -4,8 +4,6 @@ import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
 import SearchResults from '../components/SearchResults'
 import infoPage from '../breed info/joinOutPutThree'
-// import { Col, Row, Container } from "../components/Grid";
-
 
 class Search extends Component {
     constructor(props) {
