@@ -4,8 +4,6 @@ import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
 import SearchResults from '../components/SearchResults'
 import infoPage from '../breed info/joinOutPutThree'
-// import { Col, Row, Container } from "../components/Grid";
-
 
 class Search extends Component {
     constructor(props) {
@@ -64,8 +62,10 @@ class Search extends Component {
                                 </div>
                             </div>
                         </div>
-                        <SearchResults results={this.state.results} />
+                        {/* <SearchResults results={this.state.results} /> */}
                 </Jumbotron>
+                <SearchResults results={this.state.results} />
+
             </div>
                 )
             }

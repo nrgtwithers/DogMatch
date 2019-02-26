@@ -3,7 +3,7 @@ import "./style.css";
 
 function SearchResults(props) {
   return (
-    <ul className="list-group search-results">
+    <ul className="list-group search-results" style={{paddingRight: 50, paddingLeft: 50 }}>
       {props.results.map((result,index) => (
         <li key={index} className="list-group-item">
         <div className="row">
@@ -20,8 +20,8 @@ function SearchResults(props) {
           </div>
           <div className="row">
           <div className="col-7"></div>
-          <div className="col-2"><button id="search" className="Save">Save as Favorite</button></div>
-          <div className="col-3"><button id="search" className="Find">Find Rescue/Breeder</button></div>
+          <div className="col-2"><button id="search" onClick={props.handleFormSubmit} className="Save">Save as Favorite</button></div>
+          <div className="col-3"><button id="search" onClick={props.handleFormSubmit} className="Find">Find Rescue/Breeder</button></div>
           </div>
         </li>
       ))}

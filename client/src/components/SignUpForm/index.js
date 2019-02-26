@@ -6,6 +6,8 @@ class SignUpForm extends Component {
 	constructor() {
 		super()
 		this.state = {
+			name: '',
+			location: '',
 			email: '',
 			password: '',
 			// confirmPassword: '',
@@ -26,6 +28,8 @@ class SignUpForm extends Component {
 
 		//request to server to add a new email/password
 		axios.post('/user/', {
+			// name: this.state.name,
+			// location: this.state.location,
 			email: this.state.email,
 			password: this.state.password
 		})
@@ -51,13 +55,49 @@ class SignUpForm extends Component {
 	render() {
 		const { redirectTo } = this.state;
 
-		if(redirectTo) {
-			return  <Redirect to={{ pathname: this.state.redirectTo }} />
+		if (redirectTo) {
+			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
 			<div className="SignupForm">
 				<h6>Sign up</h6>
 				<form className="form-horizontal">
+					{/* <div className="form-group">
+						<div className="row">
+							<div className="col-md-4"></div>
+							<div className="col-md-4">
+								<label className="form-label" htmlFor="email">Name:</label>
+							</div>
+							<div className="col-12">
+								<input className="form-input"
+									type="text"
+									id="name"
+									name="name"
+									placeholder=""
+									value={this.state.name}
+									onChange={this.handleChange}
+								/>
+							</div>
+						</div>
+					</div> */}
+					{/* <div className="form-group">
+						<div className="row">
+							<div className="col-md-4"></div>
+							<div className="col-md-4">
+								<label className="form-label" htmlFor="email">Location:</label>
+							</div>
+							<div className="col-12">
+								<input className="form-input"
+									type="text"
+									id="location"
+									name="location"
+									placeholder=""
+									value={this.state.location}
+									onChange={this.handleChange}
+								/>
+							</div>
+						</div>
+					</div> */}
 					<div className="form-group">
 						<div className="row">
 							<div className="col-md-4"></div>
