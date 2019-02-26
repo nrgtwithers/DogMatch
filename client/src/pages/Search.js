@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import LogoTwo from '../components/Logo'
 import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
+import SearchResults from '../components/SearchResults'
+import infoPage from '../breed info/joinOutPutThree'
 // import { Col, Row, Container } from "../components/Grid";
 
 
@@ -11,7 +13,7 @@ class Search extends Component {
 
         this.state = {
           searchQuery: '',
-
+          results: []
         }
         this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
@@ -19,13 +21,23 @@ class Search extends Component {
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
+        }, ()=>{
+            console.log(this.state)
         })
     }
     handleSubmit(event) {
+        event.preventDefault()
         console.log(`The breed your searching is ${this.state.searchQuery}`)
-		event.preventDefault()
+        let searchQuery = this.capitalizeFirstLetter(this.state.searchQuery)
+        const results = infoPage.filter(info => info.breed.includes(searchQuery))
+        console.log(results)
+        this.setState({
+            results:results
+        })
     }
-
+    capitalizeFirstLetter=string => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     render() {
         return (
             <div>
@@ -43,16 +55,16 @@ class Search extends Component {
                             <div className='col-md-6'>
                                 <div className='search-box'>
                                     <form className='search-form'>
-                                        <span><input className='form-control' placeholder='ex: German Shepherd, Bichon Frise, Lab.' type='text' onChange={this.handleChange} value={this.state.searchQuery} />
-                                            <button onClick={this.state.handleSubmit} className='signButton'>
-                                            Search <i class="fas fa-search"></i>
+                                        <span><input className='form-control' placeholder='ex: German Shepherd, Bichon Frise, Lab...' type='text' name='searchQuery' value={this.state.searchQuery} onChange={this.handleChange} />
+                                            <button onClick={this.handleSubmit} className='signButton'>
+                                            Search <i className="fas fa-search"></i>
                                             </button></span>
         </form>
       </div>
                                 </div>
                             </div>
                         </div>
-
+                        <SearchResults results={this.state.results} />
                 </Jumbotron>
             </div>
                 )

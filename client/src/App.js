@@ -6,9 +6,9 @@ import SignUp from "./pages/SignUp";
 import UserPage from './pages/UserPage'
 import How from "./pages/How"
 import Quiz from "./pages/Quiz";
-import QuizResults from "./pages/QuizResults";
+// import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
-import SearchResults from "./pages/SearchResults";
+// import SearchResults from "./pages/SearchResults";
 
 function App() {
 
@@ -22,9 +22,9 @@ function App() {
           <Route exact path="/user" component={UserPage} />
           <Route exact path="/how" component={How} />
           <Route exact path="/quiz" component={Quiz} />
-          <Route exact path="/quiz/results" component={QuizResults} />
+          {/* <Route exact path="/quiz/results" component={QuizResults} /> */}
           <Route exact path="/search" component={Search} />
-          <Route exact path="/search/results" component={SearchResults} />
+          {/* <Route exact path="/search/results" component={SearchResults} /> */}
         </Switch>
       </div>
     </Router>
