@@ -54,7 +54,7 @@ class UserPage extends Component {
                 <Jumbotron>
                     {/* greet user if logged in: */}
                     {this.state.loggedIn &&
-                        <h5>Welcome {this.state.email} to DogMatch.com!</h5>}
+                        <h5 class="welcome">Welcome {this.state.email} to DogMatch.com!</h5>}
                 </Jumbotron>
 
             </div>

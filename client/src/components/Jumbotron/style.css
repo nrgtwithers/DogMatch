@@ -45,3 +45,10 @@ form{
     border-color: #468499 !important;
     color:white !important;
 }
+
+h5.welcome{
+    color:white !important;
+    font-family: 'Prompt', sans-serif !important;
+    font-size: 30px !important;
+    background-color:#468499 !important;
+}

@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import SignUpForm from '../components/SignUpForm'
 import LoginForm from '../components/LoginForm'
 import UserNav from '../components/UserNav'
-import UserHome from '../components/UserHome'
+import LogoTwo from '../components/LogoTwo'
 import Jumbotron from '../components/Jumbotron';
 import Logo from '../components/Logo'
 
@@ -63,8 +63,8 @@ class Login extends Component {
         } */}
         {/* Routes to different components */}
         <Route
-          exact path="/"
-          component={UserHome} />
+          exact path="/user"
+          component={LogoTwo} />
         <Route
           path="/login"
           render={() =>
