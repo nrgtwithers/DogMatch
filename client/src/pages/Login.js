@@ -58,9 +58,9 @@ class Login extends Component {
         <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Jumbotron>
         {/* greet user if logged in: */}
-        {this.state.loggedIn &&
+        {/* {this.state.loggedIn &&
           <h5>Welcome {this.state.email} to DogMatch.com!</h5>
-        }
+        } */}
         {/* Routes to different components */}
         <Route
           exact path="/"
