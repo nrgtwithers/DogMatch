@@ -49,6 +49,11 @@ class SignUpForm extends Component {
 
 
 	render() {
+		const { redirectTo } = this.state;
+
+		if(redirectTo) {
+			return  <Redirect to={{ pathname: this.state.redirectTo }} />
+		}
 		return (
 			<div className="SignupForm">
 				<h6>Sign up</h6>
