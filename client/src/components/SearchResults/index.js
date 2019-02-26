@@ -20,8 +20,8 @@ function SearchResults(props) {
           </div>
           <div className="row">
           <div className="col-7"></div>
-          <div className="col-2"><button id="search" className="Save">Save as Favorite</button></div>
-          <div className="col-3"><button id="search" className="Find">Find Rescue/Breeder</button></div>
+          <div className="col-2"><button id="search" onClick={props.handleFormSubmit} className="Save">Save as Favorite</button></div>
+          <div className="col-3"><button id="search" onClick={props.handleFormSubmit} className="Find">Find Rescue/Breeder</button></div>
           </div>
         </li>
       ))}

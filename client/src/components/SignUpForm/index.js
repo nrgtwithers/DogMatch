@@ -28,8 +28,8 @@ class SignUpForm extends Component {
 
 		//request to server to add a new email/password
 		axios.post('/user/', {
-			name: this.state.name,
-			location: this.state.location,
+			// name: this.state.name,
+			// location: this.state.location,
 			email: this.state.email,
 			password: this.state.password
 		})
@@ -62,7 +62,7 @@ class SignUpForm extends Component {
 			<div className="SignupForm">
 				<h6>Sign up</h6>
 				<form className="form-horizontal">
-					<div className="form-group">
+					{/* <div className="form-group">
 						<div className="row">
 							<div className="col-md-4"></div>
 							<div className="col-md-4">
@@ -79,8 +79,8 @@ class SignUpForm extends Component {
 								/>
 							</div>
 						</div>
-					</div>
-					<div className="form-group">
+					</div> */}
+					{/* <div className="form-group">
 						<div className="row">
 							<div className="col-md-4"></div>
 							<div className="col-md-4">
@@ -97,7 +97,7 @@ class SignUpForm extends Component {
 								/>
 							</div>
 						</div>
-					</div>
+					</div> */}
 					<div className="form-group">
 						<div className="row">
 							<div className="col-md-4"></div>
