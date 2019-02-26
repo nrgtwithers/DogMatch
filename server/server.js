@@ -6,8 +6,10 @@ const session = require('express-session')
 const dbConnection = require('./database') 
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
+require('dotenv').config();
+
 const app = express()
-const PORT = 3001
+
 // Route requires
 const user = require('./routes/user');
 
@@ -15,9 +17,9 @@ const user = require('./routes/user');
 // 	process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds',
 // 	{ useNewUrlParser: true, autoIndex: false }
 //   );
-var url = process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds';
+var mongoConnectUrl = process.env.MONGODB_URI;
 
-mongoose.connect(url, { useNewUrlParser: true, autoIndex: false });
+mongoose.connect(mongoConnectUrl, { useNewUrlParser: true, autoIndex: false });
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -31,9 +33,9 @@ app.use(bodyParser.json())
 // Sessions
 app.use(
 	session({
-		secret: 'fraggle-rock', //pick a random string to make the hash that is generated secure
+		secret: process.env.SESSION_SECRET, //pick a random string to make the hash that is generated secure
 		store: new MongoStore({
-			url:  'mongodb://localhost/dogBreeds',
+			url: mongoConnectUrl,
 			autoReconnect: true
 		}),
 		resave: false, //required
@@ -58,7 +60,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Starting Server 
-app.listen(PORT, () => {
-	console.log(`App listening on PORT: ${PORT}`)
+app.listen(process.env.PORT, () => {
+	console.log(`App listening on PORT: ${process.env.PORT}`)
 })
 
