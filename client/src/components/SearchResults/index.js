@@ -3,7 +3,7 @@ import "./style.css";
 
 function SearchResults(props) {
   return (
-    <ul className="list-group search-results">
+    <ul className="list-group search-results" style={{paddingRight: 50, paddingLeft: 50 }}>
       {props.results.map((result,index) => (
         <li key={index} className="list-group-item">
         <div className="row">

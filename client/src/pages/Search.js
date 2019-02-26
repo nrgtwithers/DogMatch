@@ -62,8 +62,10 @@ class Search extends Component {
                                 </div>
                             </div>
                         </div>
-                        <SearchResults results={this.state.results} />
+                        {/* <SearchResults results={this.state.results} /> */}
                 </Jumbotron>
+                <SearchResults results={this.state.results} />
+
             </div>
                 )
             }
