@@ -6,6 +6,7 @@ h1{
     margin-left: 10px;
     font-family: 'Kaushan Script', cursive;
     /* font-family: 'Prompt', sans-serif; */
+    text-transform: none;
     font-weight: bold;
     text-shadow: 1px 1px #000000;
   }

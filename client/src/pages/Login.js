@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import SignUpForm from '../components/SignUpForm'
 import LoginForm from '../components/LoginForm'
 import UserNav from '../components/UserNav'
-import LogoTwo from '../components/LogoTwo'
+// import LogoTwo from '../components/LogoTwo'
 import Jumbotron from '../components/Jumbotron';
 // import Logo from '../components/Logo'
 
@@ -54,7 +54,7 @@ class Login extends Component {
   render() {
     return (
       <div className="App">
-        <LogoTwo />
+        {/* <LogoTwo /> */}
         <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Jumbotron>
         {/* greet user if logged in: */}

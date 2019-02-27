@@ -18,7 +18,7 @@ class UserNav extends Component {
                     loggedIn: false,
                     username: null
                 })
-                
+
             }
         }).catch(error => {
             console.log('Logout error')
@@ -37,7 +37,7 @@ class UserNav extends Component {
                     <div className="col-12" >
                         {loggedIn ? (
                             <nav className="navbar navbar-trans navbar-expand-lg navbar-light bg-clear">
-                                {/* <a className="navbar-brand" href="#">Navbar</a> */}
+                                <a className="navbar-brand" href="/"><h1>DogMatch.com</h1></a>
                                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                                     <span className="navbar-toggler-icon"></span>
                                 </button>
@@ -60,7 +60,7 @@ class UserNav extends Component {
 
                         ) : (
                                 <nav className="navbar navbar-trans navbar-expand-lg navbar-light bg-clear">
-                                    {/* <a className="navbar-brand" href="#">Navbar</a> */}
+                                    <a className="navbar-brand" href="#"><h1>DogMatch.com</h1></a>
                                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                                         <span className="navbar-toggler-icon"></span>
                                     </button>

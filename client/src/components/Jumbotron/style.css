@@ -2,7 +2,7 @@
 
 .jumbotron{
     background-color: white;
-    margin-top: 130px;
+    margin-top: 80px !important;
     min-height: 350px;
     /* margin: auto; */
     text-align: center;
@@ -51,4 +51,13 @@ h5.welcome{
     font-family: 'Prompt', sans-serif !important;
     font-size: 30px !important;
     background-color:#468499 !important;
+}
+
+h4.How{
+    padding-top: 20px;
+    color:#468499 !important;
+    font-weight: bold;
+    text-align: center !important;
+    font-family: 'Prompt', sans-serif;
+    font-size: 40px;
 }

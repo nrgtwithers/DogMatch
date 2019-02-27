@@ -7,7 +7,7 @@ import LoginForm from '../components/LoginForm'
 import UserNav from '../components/UserNav'
 import Home from '../pages/Home'
 import Jumbotron from '../components/Jumbotron';
-import Logo from '../components/Logo'
+// import Logo from '../components/Logo'
 
 class SignUp extends Component {
   constructor() {
@@ -54,7 +54,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="App">
-        <Logo />
+        {/* <Logo /> */}
         <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Jumbotron>
         {/* greet user if logged in: */}

@@ -4,19 +4,27 @@ h1{
     font-size: 60px;
     text-align: left;
     margin-left: 10px;
+    color: white;
     font-family: 'Kaushan Script', cursive;
+    text-transform: none;
     /* font-family: 'Prompt', sans-serif; */
     font-weight: bold;
     text-shadow: 1px 1px #000000;
+    z-index:11;
+  }
+
+  h1:hover{
+    text-decoration: none;
   }
 
    /* Add some content at the bottom of the video/page */
-   .content {
+   .content-title {
     position: fixed;
-    top: 50px;
+    top: 20px;
     margin: auto;
     background:transparent;
-    color: #f1f1f1;
-    width: 100%;
+    color: #f1f1f1 !important;
+    width: 50%;
     padding: 20px;
+    z-index:11;
   }

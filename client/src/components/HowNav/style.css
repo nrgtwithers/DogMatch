@@ -11,6 +11,32 @@
     height: 100% !important;
     z-index:11;
   }
+  h1{
+    font-size: 60px;
+    text-align: left;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Kaushan Script', cursive;
+    text-transform: none;
+    /* font-family: 'Prompt', sans-serif; */
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+    z-index:11;
+  }
+
+  h1:hover{
+    text-decoration: none;
+  }
+  .content {
+    position: fixed;
+    top: 10px;
+    margin: auto;
+    background:transparent;
+    color: #f1f1f1 !important;
+    /* width: 100%; */
+    padding: 20px;
+    z-index:11;
+  }
 
 a.nav-link{
     text-shadow: 1px 1px #000000;

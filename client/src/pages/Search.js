@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LogoTwo from '../components/Logo'
+// import LogoTwo from '../components/Logo'
 import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
 import SearchResults from '../components/SearchResults'
@@ -43,12 +43,12 @@ class Search extends Component {
         return (
             <div>
                 <UserNav />
-                <LogoTwo />
+                {/* <LogoTwo /> */}
                 <Jumbotron>
                     <div className='search-container'>
                         <div className='row'>
                             <div className='col-md-12'>
-                                <h1 className="How">Search Breed</h1>
+                                <h4 className="How">Search Breed</h4>
                             </div>
                         </div>
                         <div className='row'>

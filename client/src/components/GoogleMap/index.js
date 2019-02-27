@@ -7,7 +7,7 @@ function NearMeButton() {
         <div id="content2">
             <Link to="/nearme">
                 <button type="button" class="btn btn-light">
-                    Near Me
+                    Find a Pup
                 </button>
             </Link>
         </div>

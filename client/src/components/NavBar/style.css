@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Prompt');
 
+h1{
+  font-size: 60px;
+  text-align: left;
+  margin-left: 10px;
+  color: white;
+  font-family: 'Kaushan Script', cursive;
+  text-transform: none;
+  /* font-family: 'Prompt', sans-serif; */
+  font-weight: bold;
+  width: 50%;
+  text-shadow: 1px 1px #000000;
+}
+
+/* div.content {
+  position: fixed;
+  top: 10px;
+  margin: auto;
+  background:transparent;
+  color: #f1f1f1 !important;
+  /* width: 100%; */
+  /* padding: 20px;
+  z-index:11 !important;
+} */ 
+
 #overlay {
     background-color: transparent !important;
     position:absolute;
