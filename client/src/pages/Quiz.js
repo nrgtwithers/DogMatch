@@ -1,48 +1,54 @@
 // to do
 
 // make sure all questions are giving right answers
-    // done
-    /*
-        affection: "", ---
-        exercise: "", ---
-        activity: "", ---
-        hasKids: "", ---
-        hasDogs: "", ---
-        houseSize: "", ---
-        experience: "", ---
-        sensitivity: "", ---
-        aloneTime: "", ---
-        cold: "", --
-        hot: "", --
-        dogSize: "", --
-        shedding: "", --
-        grooming: "", --
-        healthNeed: "", ---
-        intense: "" ---
+// done
+/*
+    affection: "", ---
+    exercise: "", ---
+    activity: "", ---
+    hasKids: "", ---
+    hasDogs: "", ---
+    houseSize: "", ---
+    experience: "", ---
+    sensitivity: "", ---
+    aloneTime: "", ---
+    cold: "", --
+    hot: "", --
+    dogSize: "", --
+    shedding: "", --
+    grooming: "", --
+    healthNeed: "", ---
+    intense: "" ---
 
-        CHECKER
-        console.log(aloneTolerance);
-        console.log(allNumericalInfo);
-        console.log(aloneArr);
-    */
+    CHECKER
+    console.log(aloneTolerance);
+    console.log(allNumericalInfo);
+    console.log(aloneArr);
+*/
 // add all questions from dataset
 // split results up by the size of the dog
-    // have a final result divided by size of dogs
-    // have option for dogs of other sizes if there's not enough good matches outside of dog size
+// have a final result divided by size of dogs
+// have option for dogs of other sizes if there's not enough good matches outside of dog size
 // take top 3-4 results, send breed name to petfinder and get a couple results back
 // split quiz questions into separate file for cleanliness' sake
 
 import React, { Component } from "react";
+// import { Route, Redirect } from 'react-router-dom'
 import { allNumericalInfo } from "../breed info/joinOutPutTwo";
-import { func } from "prop-types";
+// import { func } from "prop-types";
 import UserNav from "../components/UserNav";
+import infoPage from '../breed info/joinOutPutThree';
+import FirstResult from '../components/FirstResult';
+import SecondResult from "../components/SecondResult";
+import ThirdResult from "../components/ThirdResult";
 
 
 class Form extends Component {
-
+    constructor(props) {
+        super(props);
 
     // Assign state itself, and a default value for items
-    state = {
+    this.state = {
         affection: "",
         exercise: "",
         activity: "",
@@ -58,10 +64,17 @@ class Form extends Component {
         shedding: "",
         grooming: "",
         healthNeed: "",
-        intense: ""
+        intense: "",
+        firstPlace: "",
+        secondPlace:'',
+        thirdPlace:'',
+        results: [],
+        secondResults: [],
+        thirdResults: []
     };
-
-
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    }
     handleInputChange = event => {
         const { name, value } = event.target;
 
@@ -91,8 +104,7 @@ class Form extends Component {
             shedding: "",
             grooming: "",
             healthNeed: "",
-            intense: ""
-
+            intense: "",
         });
 
         let kids;
@@ -118,32 +130,32 @@ class Form extends Component {
 
 
         // intensity
-        let intensityArr = allNumericalInfo.filter(function(res) {
+        let intensityArr = allNumericalInfo.filter(function (res) {
             return res.intensity >= intenseRating;
         })
 
         // general health
         if (health === "yes") {
-            healthArr = allNumericalInfo.filter(function(res) {
+            healthArr = allNumericalInfo.filter(function (res) {
                 return res.generalHealth === 1;
             })
         } else if (health === "somewhat") {
-            healthArr = allNumericalInfo.filter(function(res) {
+            healthArr = allNumericalInfo.filter(function (res) {
                 return res.generalHealth >= 2;
             })
         } else {
-            healthArr = allNumericalInfo.filter(function(res) {
+            healthArr = allNumericalInfo.filter(function (res) {
                 return res.generalHealth >= 4;
             })
         }
 
         // grooming
-        let groomingArr = allNumericalInfo.filter(function(res) {
+        let groomingArr = allNumericalInfo.filter(function (res) {
             return res.easyGrooming >= grooming;
         })
 
         // shedding
-        let sheddingArr = allNumericalInfo.filter(function(res) {
+        let sheddingArr = allNumericalInfo.filter(function (res) {
             return res.shedding >= shed;
         })
 
@@ -173,15 +185,15 @@ class Form extends Component {
         });
 
         // cold weather
-        let coldTolerance = allNumericalInfo.filter(function(res) {
+        let coldTolerance = allNumericalInfo.filter(function (res) {
             return res.toleratesColdWeather >= coldTolerate;
         })
 
         // hot weather
-        let hotTolerance = allNumericalInfo.filter(function(res) {
+        let hotTolerance = allNumericalInfo.filter(function (res) {
             return res.toleratesHotWeather >= hotTolerate;
         })
-        
+
         // the affection
         let dogAffection = allNumericalInfo.filter(function (friend) {
             return friend.affectionateWFamily >= familyAffection;
@@ -210,19 +222,19 @@ class Form extends Component {
         }
 
         // experience level
-        let experienceArr = allNumericalInfo.filter(function(exp) {
+        let experienceArr = allNumericalInfo.filter(function (exp) {
             return exp.goodForNoviceOwners >= dogExperience;
         })
 
         // sensitivity - how chaotic
-        let sensitivityArr = allNumericalInfo.filter(function(res) {
+        let sensitivityArr = allNumericalInfo.filter(function (res) {
             return res.sensitivityLevel < dogSensitivity;
         })
 
         // time alone
         if (dogSensitivity === "very") {
             sensitivityArr = allNumericalInfo.filter(function (res) {
-                return res.sensitivityLevel <= 2 ;
+                return res.sensitivityLevel <= 2;
             })
         } else if (dogSensitivity === "moderately") {
             sensitivityArr = allNumericalInfo.filter(function (res) {
@@ -251,15 +263,15 @@ class Form extends Component {
 
         // size of dog
         if (dogSize === "large") {
-            sizeArr = allNumericalInfo.filter(function(res) {
+            sizeArr = allNumericalInfo.filter(function (res) {
                 return res.size === 5;
             })
         } else if (dogSize === "medium") {
-            sizeArr = allNumericalInfo.filter(function(res) {
+            sizeArr = allNumericalInfo.filter(function (res) {
                 return res.size === 3 || res.size === 4;
             })
         } else {
-            sizeArr = allNumericalInfo.filter(function(res) {
+            sizeArr = allNumericalInfo.filter(function (res) {
                 return res.size === 1 || res.size === 2;
             })
         }
@@ -289,20 +301,20 @@ class Form extends Component {
         var counts = {};
         dogResults.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
 
-        
+
 
         // console.log(counts);
 
-        function getFirst(o){
-            var vals = [];    
-            for(var i in o){
-               vals.push(o[i]);
+        function getFirst(o) {
+            var vals = [];
+            for ( i in o) {
+                vals.push(o[i]);
             }
-        
+
             var max = Math.max.apply(null, vals);
-        
-             for(var i in o){
-                if(o[i] === max){
+
+            for ( i in o) {
+                if (o[i] === max) {
                     return i;
                 }
             }
@@ -314,25 +326,43 @@ class Form extends Component {
         let secondPlace = getFirst(counts);
         delete counts[secondPlace];
         let thirdPlace = getFirst(counts);
-        
+
         console.log(counts);
         console.log(firstPlace);
         console.log(secondPlace);
         console.log(thirdPlace);
 
+    
+        // console.log(`Your best matches are ${firstPlace}, ${secondPlace}, and ${thirdPlace} `)
+        const results = infoPage.filter(result => result.breed.includes(firstPlace))
+        console.log(results)
+        this.setState({
+            results: results
+        })
+
+        const secondResults = infoPage.filter(result => result.breed.includes(secondPlace))
+        console.log(secondResults)
+        this.setState({
+            secondResults: secondResults
+        })
+        const thirdResults = infoPage.filter(result => result.breed.includes(thirdPlace))
+        console.log(thirdResults)
+        this.setState({
+            thirdResults: thirdResults
+        })
     };
 
     render() {
 
         return (
             <div>
-               <div id="quiz-header">
-                    <UserNav></UserNav>
-               </div>
+                <div id="quiz-header">
+                    <UserNav />
+                </div>
 
                 <form className="form" id="quiz-form">
 
-                <div className="form-control">
+                    <div className="form-control">
                         <label>
                             <input
                                 type="radio"
@@ -366,7 +396,7 @@ class Form extends Component {
                             Small
                         </label>
                     </div>
-                
+
                     <div className="form-control">
                         <label>Are you willing and able to to care for with a pet with genetic health issues?
                             <input
@@ -402,9 +432,9 @@ class Form extends Component {
                         </label>
                     </div>
 
-                
 
-                <div className="form-control">
+
+                    <div className="form-control">
                         <label>Is cold weather common where you are?</label>
                         <input
                             value={this.state.cold}
@@ -679,8 +709,12 @@ class Form extends Component {
 
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
+               
+            <FirstResult results={this.state.results} />
+            <SecondResult secondResults={this.state.secondResults} />
+            <ThirdResult thirdResults={this.state.thirdResults} />
 
-                
+              
             </div>
         );
     }

@@ -13,10 +13,6 @@ const app = express()
 // Route requires
 const user = require('./routes/user');
 
-// mongoose.connect(
-// 	process.env.MONGODB_URI || 'mongodb://localhost/dogBreeds',
-// 	{ useNewUrlParser: true, autoIndex: false }
-//   );
 var mongoConnectUrl = process.env.MONGODB_URI;
 
 mongoose.connect(mongoConnectUrl, { useNewUrlParser: true, autoIndex: false });

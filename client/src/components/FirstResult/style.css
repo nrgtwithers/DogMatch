@@ -1,0 +1,37 @@
+.image{
+    float: left;
+}
+
+.info{
+    float: right;
+}
+
+h3.breed{
+    text-align:left;
+    font-size: 30px;
+    font-weight:bold;
+    color:#468499;
+}
+
+strong{
+    color:#468499;
+}
+
+li.list-group-item{
+    padding: 30px;
+}
+
+button#quiz{
+    margin-top: 60px;
+    color:#468499 !important;
+    font-family: 'Prompt', sans-serif !important;
+    float: right;
+    border-width: 1px;
+    border-color: #468499 !important;
+    background:white !important;
+}
+
+button#quiz:hover{
+    color:white !important;
+    background-color:#468499 !important;
+}

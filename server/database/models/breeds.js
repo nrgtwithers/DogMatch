@@ -8,7 +8,8 @@ const BreedsSchema = new Schema({
   weight: { type: String, required: true },
   height: { type: String, required: true },
   Description: { type: String, required: true },
-  UserId:{type: Schema.Types.ObjectId, ref:"User"},
+  updated_date: { type: Date, default: Date.now },
+  UserId:{type: Schema.Types.ObjectId, ref:"User"}
 });
 
 const Breeds = mongoose.model("Breeds", BreedsSchema);
