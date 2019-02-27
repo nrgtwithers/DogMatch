@@ -111,7 +111,6 @@ class Form extends Component {
             grooming: "",
             healthNeed: "",
             intense: ""
-
         });
 
         let kids;
@@ -450,7 +449,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Are you willing and able to to care for with a pet with genetic health issues?
+                        <label>Are you willing and able to care for with a pet with genetic health issues?
                             <input
                                 type="radio"
                                 name="healthNeed"
@@ -485,7 +484,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Time alone?
+                        <label>How much time will the dog spend alone?
                             <input
                                 type="radio"
                                 name="aloneTime"
@@ -520,7 +519,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Dog experience?</label>
+                        <label>What is your experience with dogs?</label>
                         <label>
                             <input
                                 type="radio"
@@ -661,7 +660,7 @@ class Form extends Component {
 
 
                     <div className="form-control">
-                        <label>
+                        <label>What is your current living arrangement?
                             <input
                                 type="radio"
                                 name="houseSize"
@@ -696,7 +695,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>
+                        <label>Do you live with children?
                             <input
                                 type="radio"
                                 name="hasKids"
@@ -704,7 +703,7 @@ class Form extends Component {
                                 checked={this.state.hasKids === "true"}
                                 onChange={this.handleInputChange}
                             />
-                            I have kids
+                            Yes
                         </label>
 
                         <label>
@@ -715,11 +714,11 @@ class Form extends Component {
                                 checked={this.state.hasKids === "false"}
                                 onChange={this.handleInputChange}
                             />
-                            I don't have kids
+                            No
                         </label>
                     </div>
                     <div className="form-control">
-                        <label>
+                        <label>Do you live with other dogs?
                             <input
                                 type="radio"
                                 name="hasDogs"
@@ -727,7 +726,7 @@ class Form extends Component {
                                 checked={this.state.hasDogs === "true"}
                                 onChange={this.handleInputChange}
                             />
-                            I have dogs
+                            Yes
                         </label>
                         <label>
                             <input
@@ -737,7 +736,7 @@ class Form extends Component {
                                 checked={this.state.hasDogs === "false"}
                                 onChange={this.handleInputChange}
                             />
-                            I don't have dogs
+                            No
                         </label>
                     </div>
 
@@ -778,7 +777,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Playfulness?
+                        <label>How playful would you like your dog to be?
                             <input
                                 type="radio"
                                 name="playful"
@@ -786,7 +785,7 @@ class Form extends Component {
                                 checked={this.state.playful === "highest"}
                                 onChange={this.handleInputChange}
                             />
-                            Most
+                            Extremely playful
                         </label>
                         <label>
                             <input
@@ -796,7 +795,7 @@ class Form extends Component {
                                 checked={this.state.playful === "middle"}
                                 onChange={this.handleInputChange}
                             />
-                            Moderate
+                            Moderately playful
                         </label>
                         <label>
                             <input
@@ -806,7 +805,7 @@ class Form extends Component {
                                 checked={this.state.playful === "lowest"}
                                 onChange={this.handleInputChange}
                             />
-                            Least
+                            More low key
                         </label>
                         </div>
 

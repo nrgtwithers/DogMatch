@@ -3,7 +3,7 @@ import "./style.css";
 
 function SliderLabels() {
     return(
-        <ul class="slider-labels">
+        <ul className="slider-labels">
             <li>Never</li>
             <li>Sometimes</li>
             <li>Neutral</li>
