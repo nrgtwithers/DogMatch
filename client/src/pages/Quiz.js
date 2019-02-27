@@ -42,6 +42,7 @@ import infoPage from '../breed info/joinOutPutThree';
 import FirstResult from '../components/FirstResult';
 import SecondResult from "../components/SecondResult";
 import ThirdResult from "../components/ThirdResult";
+import SliderLabels from "../components/SliderLabels/index.js";
 
 
 class Form extends Component {
@@ -447,6 +448,7 @@ class Form extends Component {
                             min="1"
                             max="5"
                         />
+                        <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -460,6 +462,7 @@ class Form extends Component {
                             min="1"
                             max="5"
                         />
+                         <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -521,6 +524,7 @@ class Form extends Component {
                             min="1"
                             max="5"
                         />
+                         <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -569,6 +573,7 @@ class Form extends Component {
                             min="1"
                             max="5"
                         />
+                         <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -582,6 +587,7 @@ class Form extends Component {
                             min="1"
                             max="5"
                         />
+                         <SliderLabels />
                     </div>
 
 
@@ -679,6 +685,7 @@ class Form extends Component {
                             max="5"
                             placeholder="Affection needs"
                         />
+                         <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -693,6 +700,7 @@ class Form extends Component {
                             max="5"
                             placeholder="Exercise Needs"
                         />
+                         <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -707,6 +715,7 @@ class Form extends Component {
                             max="5"
                             placeholder="Activity needs"
                         />
+                         <SliderLabels />
                     </div>
 
                     <div className="form-control">
