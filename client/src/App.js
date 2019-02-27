@@ -8,7 +8,6 @@ import How from "./pages/How"
 import Quiz from "./pages/Quiz";
 import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
-// import SearchResults from "./pages/SearchResults";
 import NearMe from "./pages/NearMe";
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
           <Route exact path="/quiz" component={Quiz} />
           <Route exact path="/quiz/results" component={QuizResults} />
           <Route exact path="/search" component={Search} />
-          {/* <Route exact path="/search/results" component={SearchResults} /> */}
           <Route exact path="/nearme" component={NearMe} />
         </Switch>
       </div>

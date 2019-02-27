@@ -18,6 +18,7 @@ class UserNav extends Component {
                     loggedIn: false,
                     username: null
                 })
+                
             }
         }).catch(error => {
             console.log('Logout error')
