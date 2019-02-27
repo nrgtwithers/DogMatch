@@ -9,6 +9,9 @@ const { compose, withProps, lifecycle } = require('recompose')
 const {withScriptjs, withGoogleMap, GoogleMap, Marker} = require('react-google-maps')
 const { SearchBox } = require('react-google-maps/lib/components/places/SearchBox')
 
+const address="950 N Glebe Rd"
+
+
 const MapWithASearchBox = compose(
   withProps({
     googleMapURL: 'https://maps.googleapis.com/maps/api/place/findplacefromtext/js?input=breeder&key=AIzaSyDb_3QiYTrSXsiUZrUnxLZ52MfoDf9i5cc',
@@ -22,9 +25,11 @@ const MapWithASearchBox = compose(
 
       this.setState({
         bounds: null,
+
         center: {
           // location of Arlington, it'll be replaced by the actual location of the browser
           lat: 38.882355, lng: -77.107171
+          
         },
         markers: [],
         onMapMounted: ref => {
@@ -59,7 +64,6 @@ const MapWithASearchBox = compose(
             center: nextCenter,
             markers: nextMarkers
           })
-        // refs.map.fitBounds(bounds)
         }
       })
     }
@@ -84,6 +88,7 @@ const MapWithASearchBox = compose(
 )
 
 export default class MyFancyComponent extends React.PureComponent {
+
   render () {
     return (
       <div>
