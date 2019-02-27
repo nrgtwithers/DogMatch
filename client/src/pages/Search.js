@@ -32,6 +32,9 @@ class Search extends Component {
         this.setState({
             results:results
         })
+        // if (error){
+        //     alert('There are no search results.')
+        // }
     }
     capitalizeFirstLetter=string => {
         return string.charAt(0).toUpperCase() + string.slice(1);
