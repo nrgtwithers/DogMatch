@@ -72,7 +72,8 @@ class Form extends Component {
             thirdPlace: '',
             results: [],
             secondResults: [],
-            thirdResults: []
+            thirdResults: [],
+            adoptable: []
         };
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -84,6 +85,10 @@ class Form extends Component {
             [name]: value
         });
     };
+
+    componentDidMount() {
+        
+    }
 
     handleFormSubmit = event => {
 
@@ -113,7 +118,6 @@ class Form extends Component {
         let otherDogs;
         let familyAffection = this.state.affection;
         let exercise = this.state.exercise;
-        let activity = this.state.activity;
         let houseSize = this.state.houseSize;
         let houseArr;
         let experienceArr;
@@ -828,7 +832,7 @@ class Form extends Component {
                             name="exercise"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                             placeholder="Exercise Needs"
@@ -843,7 +847,7 @@ class Form extends Component {
                             name="grooming"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                         />
@@ -857,7 +861,7 @@ class Form extends Component {
                             name="cold"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                         />
@@ -871,7 +875,7 @@ class Form extends Component {
                             name="hot"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                         />
