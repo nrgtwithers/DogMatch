@@ -406,7 +406,7 @@ class Form extends Component {
                 <form className="form" id="quiz-form">
 
                     <div className="form-control">
-                        <label>
+                        <label>What size dog do you want?
                             <input
                                 type="radio"
                                 name="dogSize"
