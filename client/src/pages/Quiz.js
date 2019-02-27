@@ -1,35 +1,35 @@
 // to do
 
 // make sure all questions are giving right answers
-    // done
-    /*
-        affection: "", ---
-        exercise: "", ---
-        activity: "", ---
-        hasKids: "", ---
-        hasDogs: "", ---
-        houseSize: "", ---
-        experience: "", ---
-        sensitivity: "", ---
-        aloneTime: "", ---
-        cold: "",
-        hot: "",
-        dogSize: "",
-        shedding: "",
-        grooming: "",
-        healthNeed: "", ---
-        playful: "",
-        intense: "" ---
+// done
+/*
+    affection: "", ---
+    exercise: "", ---
+    activity: "", ---
+    hasKids: "", ---
+    hasDogs: "", ---
+    houseSize: "", ---
+    experience: "", ---
+    sensitivity: "", ---
+    aloneTime: "", ---
+    cold: "",
+    hot: "",
+    dogSize: "",
+    shedding: "",
+    grooming: "",
+    healthNeed: "", ---
+    playful: "",
+    intense: "" ---
 
-        CHECKER
-        console.log(aloneTolerance);
-        console.log(allNumericalInfo);
-        console.log(aloneArr);
-    */
+    CHECKER
+    console.log(aloneTolerance);
+    console.log(allNumericalInfo);
+    console.log(aloneArr);
+*/
 // add all questions from dataset
 // split results up by the size of the dog
-    // have a final result divided by size of dogs
-    // have option for dogs of other sizes if there's not enough good matches outside of dog size
+// have a final result divided by size of dogs
+// have option for dogs of other sizes if there's not enough good matches outside of dog size
 // take top 3-4 results, send breed name to petfinder and get a couple results back
 // split quiz questions into separate file for cleanliness' sake
 
@@ -49,33 +49,33 @@ class Form extends Component {
     constructor(props) {
         super(props);
 
-    // Assign state itself, and a default value for items
-    this.state = {
-        affection: "",
-        exercise: "",
-        activity: "",
-        hasKids: "",
-        hasDogs: "",
-        houseSize: "",
-        experience: "",
-        sensitivity: "",
-        aloneTime: "",
-        cold: "",
-        hot: "",
-        dogSize: "",
-        shedding: "",
-        grooming: "",
-        healthNeed: "",
-        intense: "",
-        firstPlace: "",
-        secondPlace:'',
-        thirdPlace:'',
-        results: [],
-        secondResults: [],
-        thirdResults: []
-    };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
+        // Assign state itself, and a default value for items
+        this.state = {
+            affection: "",
+            exercise: "",
+            activity: "",
+            hasKids: "",
+            hasDogs: "",
+            houseSize: "",
+            experience: "",
+            sensitivity: "",
+            aloneTime: "",
+            cold: "",
+            hot: "",
+            dogSize: "",
+            shedding: "",
+            grooming: "",
+            healthNeed: "",
+            intense: "",
+            firstPlace: "",
+            secondPlace: '',
+            thirdPlace: '',
+            results: [],
+            secondResults: [],
+            thirdResults: []
+        };
+        this.handleFormSubmit = this.handleFormSubmit.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
     }
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -117,7 +117,7 @@ class Form extends Component {
         let activity = this.state.activity;
         let houseSize = this.state.houseSize;
         let houseArr;
-        let dogExperience = this.state.experience
+        let experienceArr;
         let dogSensitivity = this.state.sensitivity;
         let aloneTolerance = this.state.aloneTime;
         let aloneArr;
@@ -125,17 +125,28 @@ class Form extends Component {
         let hotTolerate = this.state.hot;
         let sizeArr;
         let dogSize = this.state.dogSize;
-        let shed = this.state.shedding;
+        let sheddingArr;
         let grooming = this.state.grooming;
         let health = this.state.healthNeed;
         let healthArr;
-        let intenseRating = this.state.intense;
+        let intensityArr;
+        let activityArr;
 
 
         // intensity
-        let intensityArr = allNumericalInfo.filter(function (res) {
-            return res.intensity >= intenseRating;
-        })
+        if (this.state.intense === "most") {
+            intensityArr = allNumericalInfo.filter(function (friend) {
+                return friend.intensity >= 5;
+            })
+        } else if (this.state.intense === "moderate") {
+            intensityArr = allNumericalInfo.filter(function (friend) {
+                return friend.intensity >= 3;
+            })
+        } else {
+            intensityArr = allNumericalInfo.filter(function (friend) {
+                return friend.intensity >= 1;
+            })
+        }
 
         // general health
         if (health === "yes") {
@@ -158,9 +169,18 @@ class Form extends Component {
         })
 
         // shedding
-        let sheddingArr = allNumericalInfo.filter(function (res) {
-            return res.shedding >= shed;
-        })
+        if (this.state.shedding === "most") {
+            sheddingArr = allNumericalInfo.filter(function (friend) {
+                return friend.shedding >= 5;
+            })
+        } else if (this.state.shedding === "moderate") {
+            sheddingArr = allNumericalInfo.filter(function (friend) {
+                return friend.shedding >= 3;
+            })
+        } else {
+            sheddingArr = allNumericalInfo.filter(function (friend) {
+                return friend.shedding >= 1;
+        })}
 
         // houseSize
         if (houseSize === "houseYard") {
@@ -178,9 +198,19 @@ class Form extends Component {
         }
 
         // the activity level
-        let activityArr = allNumericalInfo.filter(function (activityNeed) {
-            return activityNeed.energyLevel >= activity;
-        })
+        if (this.state.activity === "most") {
+            activityArr = allNumericalInfo.filter(function (house) {
+                return house.apartmentLiving >= 5;
+            })
+        } else if (this.state.activity === "moderate") {
+            activityArr = allNumericalInfo.filter(function (house) {
+                return house.apartmentLiving >= 3;
+            })
+        } else {
+            activityArr = allNumericalInfo.filter(function (house) {
+                return house.apartmentLiving >= 1;
+            })
+        }
 
         // the exercise level
         let exerciseArr = allNumericalInfo.filter(function (exerciseNeed) {
@@ -225,9 +255,19 @@ class Form extends Component {
         }
 
         // experience level
-        let experienceArr = allNumericalInfo.filter(function (exp) {
-            return exp.goodForNoviceOwners >= dogExperience;
-        })
+        if (this.state.experience === "most") {
+            experienceArr = allNumericalInfo.filter(function (friend) {
+                return friend.goodForNoviceOwners >= 1;
+            })
+        } else if (this.state.experience === "moderate") {
+            experienceArr = allNumericalInfo.filter(function (friend) {
+                return friend.goodForNoviceOwners >= 3;
+            })
+        } else {
+            experienceArr = allNumericalInfo.filter(function (friend) {
+                return friend.goodForNoviceOwners >= 5;
+            })
+        }
 
         // sensitivity - how chaotic
         let sensitivityArr = allNumericalInfo.filter(function (res) {
@@ -310,13 +350,13 @@ class Form extends Component {
 
         function getFirst(o) {
             var vals = [];
-            for ( i in o) {
+            for (i in o) {
                 vals.push(o[i]);
             }
 
             var max = Math.max.apply(null, vals);
 
-            for ( i in o) {
+            for (i in o) {
                 if (o[i] === max) {
                     return i;
                 }
@@ -335,7 +375,7 @@ class Form extends Component {
         console.log(secondPlace);
         console.log(thirdPlace);
 
-    
+
         // console.log(`Your best matches are ${firstPlace}, ${secondPlace}, and ${thirdPlace} `)
         const results = infoPage.filter(result => result.breed.includes(firstPlace))
         console.log(results)
@@ -365,16 +405,16 @@ class Form extends Component {
 
                 <form className="form" id="quiz-form">
 
-                <div className="form-control">
+                    <div className="form-control">
                         <label>
                             <input
                                 type="radio"
                                 name="dogSize"
-                                value="large"
-                                checked={this.state.dogSize === "large"}
+                                value="small"
+                                checked={this.state.dogSize === "small"}
                                 onChange={this.handleInputChange}
                             />
-                            Large
+                            Small (up to 22 pounds)
                         </label>
 
                         <label>
@@ -385,21 +425,23 @@ class Form extends Component {
                                 checked={this.state.dogSize === "medium"}
                                 onChange={this.handleInputChange}
                             />
-                            Medium
+                            Medium (23-50 pounds)
                         </label>
+
+
 
                         <label>
                             <input
                                 type="radio"
                                 name="dogSize"
-                                value="small"
-                                checked={this.state.dogSize === "small"}
+                                value="large"
+                                checked={this.state.dogSize === "large"}
                                 onChange={this.handleInputChange}
                             />
-                            Small
+                            Large (50 pounds or more)
                         </label>
                     </div>
-                
+
                     <div className="form-control">
                         <label>Are you willing and able to to care for with a pet with genetic health issues?
                             <input
@@ -435,36 +477,6 @@ class Form extends Component {
                         </label>
                     </div>
 
-                
-
-                <div className="form-control">
-                        <label>Is cold weather common where you are?</label>
-                        <input
-                            value={this.state.cold}
-                            name="cold"
-                            onChange={this.handleInputChange}
-                            type="range"
-                            class="slider"
-                            min="1"
-                            max="5"
-                        />
-                        <SliderLabels />
-                    </div>
-
-                    <div className="form-control">
-                        <label>Is hot weather common where you are?</label>
-                        <input
-                            value={this.state.hot}
-                            name="hot"
-                            onChange={this.handleInputChange}
-                            type="range"
-                            class="slider"
-                            min="1"
-                            max="5"
-                        />
-                         <SliderLabels />
-                    </div>
-
                     <div className="form-control">
                         <label>Time alone?
                             <input
@@ -496,35 +508,76 @@ class Form extends Component {
                                 checked={this.state.aloneTime === "dogcare"}
                                 onChange={this.handleInputChange}
                             />
-                            Dog Care (whether doggy daycare or staying at home)
+                            Will have a Dog Walker/Doggie Daycare
                         </label>
                     </div>
 
                     <div className="form-control">
                         <label>Dog experience?</label>
-                        <input
-                            value={this.state.experience}
-                            name="experience"
-                            onChange={this.handleInputChange}
-                            type="range"
-                            class="slider"
-                            min="1"
-                            max="5"
-                        />
+                        <label>
+                            <input
+                                type="radio"
+                                name="experience"
+                                value="most"
+                                checked={this.state.experience === "most"}
+                                onChange={this.handleInputChange}
+                            />
+                            I've had dogs all my life.
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="experience"
+                                value="moderate"
+                                checked={this.state.experience === "moderate"}
+                                onChange={this.handleInputChange}
+                            />
+                            I dog sit/walk from time to time.
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="experience"
+                                value="least"
+                                checked={this.state.experience === "least"}
+                                onChange={this.handleInputChange}
+                            />
+                            I've never had a dog before.
+                        </label>
                     </div>
 
                     <div className="form-control">
-                        <label>Intensity level?</label>
-                        <input
-                            value={this.state.intense}
-                            name="intense"
-                            onChange={this.handleInputChange}
-                            type="range"
-                            class="slider"
-                            min="1"
-                            max="5"
-                        />
-                         <SliderLabels />
+                        <label>Would you prefer a high intensity or low intensity dog?</label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="intense"
+                                value="most"
+                                checked={this.state.intense === "most"}
+                                onChange={this.handleInputChange}
+                            />
+                            High
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="intense"
+                                value="moderate"
+                                checked={this.state.intense === "moderate"}
+                                onChange={this.handleInputChange}
+                            />
+                            Indifferent
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="intense"
+                                value="least"
+                                checked={this.state.intense === "least"}
+                                onChange={this.handleInputChange}
+                            />
+                            Low
+                        </label>
                     </div>
 
                     <div className="form-control">
@@ -536,7 +589,7 @@ class Form extends Component {
                                 checked={this.state.sensitivity === "very"}
                                 onChange={this.handleInputChange}
                             />
-                            Very
+                            So much I forget where my keys are!
                         </label>
 
                         <label>
@@ -547,7 +600,7 @@ class Form extends Component {
                                 checked={this.state.sensitivity === "moderately"}
                                 onChange={this.handleInputChange}
                             />
-                            Moderately
+                            My life is productive, but manageable.
                         </label>
 
                         <label>
@@ -558,37 +611,46 @@ class Form extends Component {
                                 checked={this.state.sensitivity === "little"}
                                 onChange={this.handleInputChange}
                             />
-                            Little
+                            I have nothing going on in my life, that's why I want an awesome dog!
                         </label>
                     </div>
 
                     <div className="form-control">
-                        <label>How much shedding can you handle?</label>
+                    <label>How much shedding would you be able to handle?
+                            <input
+                                type="radio"
+                                name="shedding"
+                                value="very"
+                                checked={this.state.shedding === "very"}
+                                onChange={this.handleInputChange}
+                            />
+                            I don't mind going everywhere with a layer of dog hair on my clothing.
+                        </label>
+
+                        <label>
                         <input
-                            value={this.state.shedding}
-                            name="shedding"
-                            onChange={this.handleInputChange}
-                            type="range"
-                            class="slider"
-                            min="1"
-                            max="5"
-                        />
-                         <SliderLabels />
+                                type="radio"
+                                name="shedding"
+                                value="moderate"
+                                checked={this.state.shedding === "moderate"}
+                                onChange={this.handleInputChange}
+                            />
+                            I don't mind lint rolling my clothes as long as its not overwhelming amounts of dog hair.
+                        </label>
+
+                        <label>
+                        <input
+                                type="radio"
+                                name="shedding"
+                                value="least"
+                                checked={this.state.shedding === "least"}
+                                onChange={this.handleInputChange}
+                            />
+                            I'd prefer a dog that doesn't shed.
+                        </label>
                     </div>
 
-                    <div className="form-control">
-                        <label>How easy should grooming be?</label>
-                        <input
-                            value={this.state.grooming}
-                            name="grooming"
-                            onChange={this.handleInputChange}
-                            type="range"
-                            class="slider"
-                            min="1"
-                            max="5"
-                        />
-                         <SliderLabels />
-                    </div>
+                    
 
 
                     <div className="form-control">
@@ -673,7 +735,75 @@ class Form extends Component {
                     </div>
 
 
+                   
+
                     <div className="form-control">
+                    <label>How active are you?
+                            <input
+                                type="radio"
+                                name="activity"
+                                value="most"
+                                checked={this.state.activity === "most"}
+                                onChange={this.handleInputChange}
+                            />
+                            Extremely
+                        </label>
+                        <label>
+                        <input
+                                type="radio"
+                                name="activity"
+                                value="moderate"
+                                checked={this.state.activity === "moderate"}
+                                onChange={this.handleInputChange}
+                            />
+                            Somewhat
+                        </label>
+                        <label>
+                        <input
+                                type="radio"
+                                name="activity"
+                                value="least"
+                                checked={this.state.activity === "least"}
+                                onChange={this.handleInputChange}
+                            />
+                            Not at all
+                        </label>
+                    </div>
+
+                    <div className="form-control">
+                        <label>Playfulness?
+                            <input
+                                type="radio"
+                                name="playful"
+                                value="highest"
+                                checked={this.state.playful === "highest"}
+                                onChange={this.handleInputChange}
+                            />
+                            Most
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="playful"
+                                value="middle"
+                                checked={this.state.playful === "middle"}
+                                onChange={this.handleInputChange}
+                            />
+                            Moderate
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="playful"
+                                value="lowest"
+                                checked={this.state.playful === "lowest"}
+                                onChange={this.handleInputChange}
+                            />
+                            Least
+                        </label>
+                        </div>
+
+                        <div className="form-control">
                         <label>Affectionate?</label>
                         <input
                             value={this.state.affection}
@@ -685,7 +815,7 @@ class Form extends Component {
                             max="5"
                             placeholder="Affection needs"
                         />
-                         <SliderLabels />
+                        <SliderLabels />
                     </div>
 
                     <div className="form-control">
@@ -700,67 +830,59 @@ class Form extends Component {
                             max="5"
                             placeholder="Exercise Needs"
                         />
-                         <SliderLabels />
+                        <SliderLabels />
                     </div>
 
                     <div className="form-control">
-                        <label>General energy level?</label>
+                        <label>How easy should grooming be?</label>
                         <input
-                            value={this.state.activity}
-                            name="activity"
+                            value={this.state.grooming}
+                            name="grooming"
                             onChange={this.handleInputChange}
                             type="range"
-                            className="slider"
+                            class="slider"
                             min="1"
                             max="5"
-                            placeholder="Activity needs"
                         />
-                         <SliderLabels />
+                        <SliderLabels />
                     </div>
 
                     <div className="form-control">
-                        <label>Playfulness?
-                            <input
-                                type="radio"
-                                name="playful"
-                                value="highest"
-                                checked={this.state.playful === "highest"}
-                                onChange={this.handleInputChange}
-                            />
-                            Super playful
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="playful"
-                                value="middle"
-                                checked={this.state.playful === "middle"}
-                                onChange={this.handleInputChange}
-                            />
-                            average playfulness
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="playful"
-                                value="lowest"
-                                checked={this.state.playful === "lowest"}
-                                onChange={this.handleInputChange}
-                            />
-                            not very playful
-                        </label>
+                        <label>Is cold weather common where you are?</label>
+                        <input
+                            value={this.state.cold}
+                            name="cold"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                        <SliderLabels />
+                    </div>
 
-                    
+                    <div className="form-control">
+                        <label>Is hot weather common where you are?</label>
+                        <input
+                            value={this.state.hot}
+                            name="hot"
+                            onChange={this.handleInputChange}
+                            type="range"
+                            class="slider"
+                            min="1"
+                            max="5"
+                        />
+                        <SliderLabels />
                     </div>
 
                     <button onClick={this.handleFormSubmit}>Submit</button>
                 </form>
-               
-            <FirstResult results={this.state.results} />
-            <SecondResult secondResults={this.state.secondResults} />
-            <ThirdResult thirdResults={this.state.thirdResults} />
 
-              
+                <FirstResult results={this.state.results} />
+                <SecondResult secondResults={this.state.secondResults} />
+                <ThirdResult thirdResults={this.state.thirdResults} />
+
+
             </div>
         );
     }
