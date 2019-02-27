@@ -85,7 +85,6 @@ class Form extends Component {
         });
     };
 
-
     handleFormSubmit = event => {
 
         event.preventDefault();
@@ -396,6 +395,10 @@ class Form extends Component {
     };
 
     render() {
+
+        const {affection, exercise, activity, hasKids, hasDogs, houseSize, experience, sensitivity, aloneTime, cold, hot, dogSize, shedding, grooming, healthNeed, intense} = this.state;
+
+        const isEnabled = affection.length > 0 && exercise.length > 0 && activity.length > 0 && hasKids.length > 0 && hasDogs.length > 0 && houseSize.length > 0 && experience.length > 0 && sensitivity.length && aloneTime.length > 0 && cold.length > 0 && hot.length > 0 && dogSize.length > 0 && shedding.length > 0 && grooming.length > 0 && healthNeed.length > 0 && intense.length > 0;
 
         return (
             <div>
@@ -875,7 +878,9 @@ class Form extends Component {
                         <SliderLabels />
                     </div>
 
-                    <button onClick={this.handleFormSubmit}>Submit</button>
+                    <button 
+                    disabled = {!isEnabled}
+                    onClick={this.handleFormSubmit}>Submit</button>
                 </form>
 
                 <FirstResult results={this.state.results} />
