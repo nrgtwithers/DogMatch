@@ -72,7 +72,8 @@ class Form extends Component {
             thirdPlace: '',
             results: [],
             secondResults: [],
-            thirdResults: []
+            thirdResults: [],
+            adoptable: []
         };
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -85,6 +86,9 @@ class Form extends Component {
         });
     };
 
+    componentDidMount() {
+        
+    }
 
     handleFormSubmit = event => {
 
@@ -107,14 +111,12 @@ class Form extends Component {
             grooming: "",
             healthNeed: "",
             intense: ""
-
         });
 
         let kids;
         let otherDogs;
         let familyAffection = this.state.affection;
         let exercise = this.state.exercise;
-        let activity = this.state.activity;
         let houseSize = this.state.houseSize;
         let houseArr;
         let experienceArr;
@@ -397,6 +399,10 @@ class Form extends Component {
 
     render() {
 
+        const {affection, exercise, activity, hasKids, hasDogs, houseSize, experience, sensitivity, aloneTime, cold, hot, dogSize, shedding, grooming, healthNeed, intense} = this.state;
+
+        const isEnabled = affection.length > 0 && exercise.length > 0 && activity.length > 0 && hasKids.length > 0 && hasDogs.length > 0 && houseSize.length > 0 && experience.length > 0 && sensitivity.length && aloneTime.length > 0 && cold.length > 0 && hot.length > 0 && dogSize.length > 0 && shedding.length > 0 && grooming.length > 0 && healthNeed.length > 0 && intense.length > 0;
+
         return (
             <div>
                 <div id="quiz-header">
@@ -443,7 +449,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Are you willing and able to to care for with a pet with genetic health issues?
+                        <label>Are you willing and able to care for with a pet with genetic health issues?
                             <input
                                 type="radio"
                                 name="healthNeed"
@@ -478,7 +484,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Time alone?
+                        <label>How much time will the dog spend alone?
                             <input
                                 type="radio"
                                 name="aloneTime"
@@ -513,7 +519,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Dog experience?</label>
+                        <label>What is your experience with dogs?</label>
                         <label>
                             <input
                                 type="radio"
@@ -654,7 +660,7 @@ class Form extends Component {
 
 
                     <div className="form-control">
-                        <label>
+                        <label>What is your current living arrangement?
                             <input
                                 type="radio"
                                 name="houseSize"
@@ -689,7 +695,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>
+                        <label>Do you live with children?
                             <input
                                 type="radio"
                                 name="hasKids"
@@ -697,7 +703,7 @@ class Form extends Component {
                                 checked={this.state.hasKids === "true"}
                                 onChange={this.handleInputChange}
                             />
-                            I have kids
+                            Yes
                         </label>
 
                         <label>
@@ -708,11 +714,11 @@ class Form extends Component {
                                 checked={this.state.hasKids === "false"}
                                 onChange={this.handleInputChange}
                             />
-                            I don't have kids
+                            No
                         </label>
                     </div>
                     <div className="form-control">
-                        <label>
+                        <label>Do you live with other dogs?
                             <input
                                 type="radio"
                                 name="hasDogs"
@@ -720,7 +726,7 @@ class Form extends Component {
                                 checked={this.state.hasDogs === "true"}
                                 onChange={this.handleInputChange}
                             />
-                            I have dogs
+                            Yes
                         </label>
                         <label>
                             <input
@@ -730,7 +736,7 @@ class Form extends Component {
                                 checked={this.state.hasDogs === "false"}
                                 onChange={this.handleInputChange}
                             />
-                            I don't have dogs
+                            No
                         </label>
                     </div>
 
@@ -771,7 +777,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Playfulness?
+                        <label>How playful would you like your dog to be?
                             <input
                                 type="radio"
                                 name="playful"
@@ -779,7 +785,7 @@ class Form extends Component {
                                 checked={this.state.playful === "highest"}
                                 onChange={this.handleInputChange}
                             />
-                            Most
+                            Extremely playful
                         </label>
                         <label>
                             <input
@@ -789,7 +795,7 @@ class Form extends Component {
                                 checked={this.state.playful === "middle"}
                                 onChange={this.handleInputChange}
                             />
-                            Moderate
+                            Moderately playful
                         </label>
                         <label>
                             <input
@@ -799,7 +805,7 @@ class Form extends Component {
                                 checked={this.state.playful === "lowest"}
                                 onChange={this.handleInputChange}
                             />
-                            Least
+                            More low key
                         </label>
                         </div>
 
@@ -825,7 +831,7 @@ class Form extends Component {
                             name="exercise"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                             placeholder="Exercise Needs"
@@ -840,7 +846,7 @@ class Form extends Component {
                             name="grooming"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                         />
@@ -854,7 +860,7 @@ class Form extends Component {
                             name="cold"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                         />
@@ -868,14 +874,16 @@ class Form extends Component {
                             name="hot"
                             onChange={this.handleInputChange}
                             type="range"
-                            class="slider"
+                            className="slider"
                             min="1"
                             max="5"
                         />
                         <SliderLabels />
                     </div>
 
-                    <button onClick={this.handleFormSubmit}>Submit</button>
+                    <button 
+                    disabled = {!isEnabled}
+                    onClick={this.handleFormSubmit}>Submit</button>
                 </form>
 
                 <FirstResult results={this.state.results} />
