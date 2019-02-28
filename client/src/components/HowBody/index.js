@@ -50,27 +50,27 @@ return (
             <VidTwo/>
             </div>
             </li>
-            <li className="directions">
-            <h3>Review quiz results.</h3>
+            {/* <li className="directions">
+            <h3>Review quiz results.</h3> */}
             {/* <div id="vidThree">
             <VidThree/>
             </div> */}
-            </li>
+            {/* </li>
             <li className="directions">
-            <h3>Optional: Save results to your account.</h3>
+            <h3>Optional: Save results to your account.</h3> */}
             {/* <div id="vidFour">
             <VidFour/>
             </div> */}
-            </li>
-            <li className="directions">
-            <h3>Optional: Check out the suggested locations for your breed.</h3> 
+            {/* </li> */}
+            {/* <li className="directions">
+            <h3>Optional: Check out the suggested locations for your breed.</h3>  */}
             {/* <div id="vidFive">
             <VidFive/>
             </div> */}
-            </li>
+            {/* </li> */}
         </ol>
         <hr />
-        <h1 className="How">Watch the instructional video!</h1>
+        {/* <h1 className="How">Watch the instructional video!</h1> */}
     </div>
                
         )
