@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import VidOne from "./Videos/vidOne"
 import VidTwo from "./Videos/vidTwo"
-// import VidThree from "./Videos/vidThree"
+import VidThree from "./Videos/vidThree"
 // import VidFour from "./Videos/vidFour"
 // import VidFive from "./Videos/vidFive"
 
@@ -12,8 +12,8 @@ constructor(props){
     
     this.state={
         videoOne:'signUp.mp4',
-        videoTwo:'quiz.mp4'
-        // videoThree:'',
+        videoTwo:'quiz.mp4',
+        videoThree:'search.mp4'
         // videoFour:'',
         // videoFive:''
     }
@@ -45,23 +45,17 @@ return (
             <VidOne/>
             </div>
             </li>
-            <li className="directions"><h3>Take the quiz.</h3>
+            <li className="directions"><h3>Take the quiz and review your results.</h3>
             <div id="vidTwo">
             <VidTwo/>
             </div>
             </li>
-            {/* <li className="directions">
-            <h3>Review quiz results.</h3> */}
-            {/* <div id="vidThree">
-            <VidThree/>
-            </div> */}
-            {/* </li>
             <li className="directions">
-            <h3>Optional: Save results to your account.</h3> */}
-            {/* <div id="vidFour">
-            <VidFour/>
-            </div> */}
-            {/* </li> */}
+            <h3>Optional: Research different breeds.</h3>
+            <div id="vidThree">
+            <VidThree/>
+            </div>
+            </li>
             {/* <li className="directions">
             <h3>Optional: Check out the suggested locations for your breed.</h3>  */}
             {/* <div id="vidFive">

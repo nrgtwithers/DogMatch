@@ -45,10 +45,10 @@ li{
     font-family: 'Prompt', sans-serif;
   }
 
-  #vidOne,#vidTwo{
+  #vidOne,#vidTwo, #vidThree{
     /* position:fixed; */
-    height: 400px;
-    width:400px;
+    height: 500px;
+    width:500px;
     /* background: center; */
   }
 
