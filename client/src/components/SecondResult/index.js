@@ -21,7 +21,7 @@ function SecondResult(props) {
           <div className="row">
           <div className="col-7"></div>
           <div className="col-2"><button id="quiz" onClick={props.handleFormSubmit} className="Save">Save as Favorite</button></div>
-          <div className="col-3"><button id="quiz" onClick={props.handleFormSubmit} className="Find">Find Rescue/Breeder</button></div>
+          {/* <div className="col-3"><button id="quiz" onClick={props.handleFormSubmit} className="Find">Find Rescue/Breeder</button></div> */}
           </div>
         </li>
       ))}
