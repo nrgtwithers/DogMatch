@@ -47,8 +47,10 @@ li{
 
   #vidOne,#vidTwo, #vidThree{
     /* position:fixed; */
-    height: 500px;
-    width:500px;
+    height: 700px;
+    width:700px;
+    display: block;
+    margin:auto;
     /* background: center; */
   }
 
