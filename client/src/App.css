@@ -23,6 +23,10 @@ h6, .h6 {
   pointer-events: none;
 }
 
+h1.matches{
+  text-align: center !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

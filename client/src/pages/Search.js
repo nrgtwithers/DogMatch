@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-// import LogoTwo from '../components/Logo'
 import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
 import SearchResults from '../components/SearchResults'
@@ -32,10 +31,8 @@ class Search extends Component {
     }
     handleSubmit(event) {
         event.preventDefault()
-        //console.log(`The breed your searching is ${this.state.searchQuery}`)
         let searchQuery = this.capitalizeFirstLetter(this.state.searchQuery)
         const results = infoPage.filter(info => info.breed.includes(searchQuery))
-        //console.log(this.state)
         this.setState({
             results:results
         });
@@ -77,7 +74,6 @@ class Search extends Component {
                                 </div>
                             </div>
                         </div>
-                        {/* <SearchResults results={this.state.results} /> */}
                 </Jumbotron>
                 <SearchResults handleFormSubmit={this.saveFavorite} results={this.state.results} />
 

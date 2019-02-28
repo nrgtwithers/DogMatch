@@ -88,7 +88,7 @@ class Form extends Component {
     };
 
     componentDidMount() {
-        
+
     }
 
     handleFormSubmit = event => {
@@ -183,7 +183,8 @@ class Form extends Component {
         } else {
             sheddingArr = allNumericalInfo.filter(function (friend) {
                 return friend.shedding >= 1;
-        })}
+            })
+        }
 
         // houseSize
         if (houseSize === "houseYard") {
@@ -400,15 +401,14 @@ class Form extends Component {
 
     render() {
 
-        const {affection, exercise, activity, hasKids, hasDogs, houseSize, experience, sensitivity, aloneTime, cold, hot, dogSize, shedding, grooming, healthNeed, intense} = this.state;
+        const { affection, exercise, activity, hasKids, hasDogs, houseSize, experience, sensitivity, aloneTime, cold, hot, dogSize, shedding, grooming, healthNeed, intense } = this.state;
 
         const isEnabled = affection.length > 0 && exercise.length > 0 && activity.length > 0 && hasKids.length > 0 && hasDogs.length > 0 && houseSize.length > 0 && experience.length > 0 && sensitivity.length && aloneTime.length > 0 && cold.length > 0 && hot.length > 0 && dogSize.length > 0 && shedding.length > 0 && grooming.length > 0 && healthNeed.length > 0 && intense.length > 0;
 
         return (
             <div>
-                <div id="quiz-header">
-                    <UserNav />
-                </div>
+                <UserNav />
+
 
                 <form className="form" id="quiz-form">
 
@@ -622,7 +622,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                    <label><h2>How much shedding would you be able to handle?</h2>
+                        <label><h2>How much shedding would you be able to handle?</h2>
                             <input
                                 type="radio"
                                 name="shedding"
@@ -634,7 +634,7 @@ class Form extends Component {
                         </label>
 
                         <label>
-                        <input
+                            <input
                                 type="radio"
                                 name="shedding"
                                 value="moderate"
@@ -645,7 +645,7 @@ class Form extends Component {
                         </label>
 
                         <label>
-                        <input
+                            <input
                                 type="radio"
                                 name="shedding"
                                 value="least"
@@ -656,7 +656,7 @@ class Form extends Component {
                         </label>
                     </div>
 
-                    
+
 
 
                     <div className="form-control">
@@ -741,10 +741,10 @@ class Form extends Component {
                     </div>
 
 
-                   
+
 
                     <div className="form-control">
-                    <label><h2>How active are you?</h2>
+                        <label><h2>How active are you?</h2>
                             <input
                                 type="radio"
                                 name="activity"
@@ -755,7 +755,7 @@ class Form extends Component {
                             Extremely
                         </label>
                         <label>
-                        <input
+                            <input
                                 type="radio"
                                 name="activity"
                                 value="moderate"
@@ -765,7 +765,7 @@ class Form extends Component {
                             Somewhat
                         </label>
                         <label>
-                        <input
+                            <input
                                 type="radio"
                                 name="activity"
                                 value="least"
@@ -807,9 +807,9 @@ class Form extends Component {
                             />
                             More low key
                         </label>
-                        </div>
+                    </div>
 
-                        <div className="form-control">
+                    <div className="form-control">
                         <label><h2>Affectionate?</h2></label>
                         <input
                             value={this.state.affection}
@@ -882,8 +882,10 @@ class Form extends Component {
                     </div>
 
                     <button id="quizButton"
-                    onClick={this.handleFormSubmit}>Submit</button>
+                        onClick={this.handleFormSubmit}>Submit</button>
                 </form>
+
+                {/* {React.cloneElement(this.props.children, { results: this.state.results, setData: this.updateData })} */}
 
                 <FirstResult results={this.state.results} />
                 <SecondResult secondResults={this.state.secondResults} />

@@ -14,10 +14,15 @@
     margin: 20px auto;
 }
 
-/* button#quizButton{
-    margin-right: auto !important;
-    margin-left: auto !important;
-} */
+h1.matches{
+    width: 100%;
+    text-align: center !important;
+  }
+
+div.topResults{
+    margin-top: 50px;
+    padding: 20px;
+}
 
 #quiz-form{
     width: 960px !important;
