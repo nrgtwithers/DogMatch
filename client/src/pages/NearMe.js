@@ -1,6 +1,6 @@
 /*global google*/
 import React from 'react'
-import LogoTwo from '../components/Logo'
+// import LogoTwo from '../components/Logo'
 import UserNav from '../components/UserNav'
 import Jumbotron from '../components/Jumbotron'
 
@@ -93,7 +93,7 @@ export default class MyFancyComponent extends React.PureComponent {
     return (
       <div>
         <UserNav />
-        <LogoTwo />
+        {/* <LogoTwo /> */}
         <Jumbotron>
           <MapWithASearchBox />
         </Jumbotron>
