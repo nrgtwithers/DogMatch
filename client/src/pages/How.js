@@ -3,15 +3,16 @@ import React from 'react';
 import HowNav from '../components/HowNav/index'
 import HowBody from "../components/HowBody"
 
-function How () {
-    
+
+function How() {
+   
 return (
     <div>
         <HowNav/>
-        {/* <LogoTwo /> */}
         <HowBody/>
     </div>              
         )
+
 };
         
 export default How;

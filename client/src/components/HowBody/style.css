@@ -45,5 +45,12 @@ li{
     font-family: 'Prompt', sans-serif;
   }
 
+  #vidOne,#vidTwo{
+    /* position:fixed; */
+    height: 400px;
+    width:400px;
+    /* background: center; */
+  }
+
 
 
