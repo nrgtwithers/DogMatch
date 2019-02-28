@@ -881,7 +881,7 @@ class Form extends Component {
                         <SliderLabels />
                     </div>
 
-                    <button
+                    <button id="quizButton"
                     onClick={this.handleFormSubmit}>Submit</button>
                 </form>
 

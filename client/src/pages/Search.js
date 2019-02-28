@@ -55,8 +55,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <UserNav />
-                {/* <LogoTwo /> */}
+        <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
                 <Jumbotron>
                     <div className='search-container'>
                         <div className='row'>
