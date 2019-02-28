@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const Breed = require('../database/models/breed')
-const passport = require('../passport')
+const Breed = require('../database/models/breeds')
 
+router.post('/', (req, res) => {
+    res.send('saved');
+})
 
 
 module.exports = router

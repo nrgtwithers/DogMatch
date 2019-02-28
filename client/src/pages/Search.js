@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 // import LogoTwo from '../components/Logo'
 import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
@@ -28,10 +29,11 @@ class Search extends Component {
         console.log(`The breed your searching is ${this.state.searchQuery}`)
         let searchQuery = this.capitalizeFirstLetter(this.state.searchQuery)
         const results = infoPage.filter(info => info.breed.includes(searchQuery))
-        console.log(results)
+        console.log(this.state)
         this.setState({
             results:results
-        })
+        });
+        axios.post('/breed', {key: 'hello'}).then((res) => console.log(res));
         // if (error){
         //     alert('There are no search results.')
         // }

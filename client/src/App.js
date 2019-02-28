@@ -13,6 +13,7 @@ import NearMe from "./pages/NearMe";
 function App() {
 
   return (
+   
     <Router>
       <div>
         <Switch>

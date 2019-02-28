@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserNav from '../components/UserNav'
-import LogoTwo from '../components/LogoTwo'
+// import LogoTwo from '../components/LogoTwo'
 import axios from 'axios'
 import Jumbotron from '../components/Jumbotron';
 
@@ -50,7 +50,7 @@ class UserPage extends Component {
         return (
             <div>
                 <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-                <LogoTwo />
+                {/* <LogoTwo /> */}
                 <Jumbotron>
                     {/* greet user if logged in: */}
                     {this.state.loggedIn &&
