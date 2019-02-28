@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserNav from '../components/UserNav'
-// import LogoTwo from '../components/LogoTwo'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Jumbotron from '../components/Jumbotron';
 
@@ -50,11 +50,15 @@ class UserPage extends Component {
         return (
             <div>
                 <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-                {/* <LogoTwo /> */}
+         
                 <Jumbotron>
                     {/* greet user if logged in: */}
-                    {this.state.loggedIn &&
-                        <h5 class="welcome">Welcome {this.state.email} to DogMatch.com!</h5>}
+                    {this.state.loggedIn ?
+                     (
+                    <h5 className="welcome">Welcome {this.state.email} to DogMatch.com!</h5>
+                    ):(
+                        <h2 className="homeLink">Return to <Link to="/">Home</Link>.</h2>
+                    )}
                 </Jumbotron>
 
             </div>

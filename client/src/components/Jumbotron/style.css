@@ -61,3 +61,21 @@ h4.How{
     font-family: 'Prompt', sans-serif;
     font-size: 40px;
 }
+
+h2.homeLink{
+    padding-top: 70px;
+    color:#468499 !important;
+    font-weight: bold;
+    text-align: center !important;
+    font-family: 'Prompt', sans-serif;
+    font-size: 40px; 
+}
+ a{
+     color: grey;
+     text-decoration: none;
+ }
+
+ a:hover{
+     color:#468499;
+     text-decoration:none;
+ }
