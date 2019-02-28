@@ -9,7 +9,6 @@ const BreedsSchema = new Schema({
   height: { type: String, required: true },
   Description: { type: String, required: true },
   updated_date: { type: Date, default: Date.now },
-  UserId:{type: Schema.Types.ObjectId, ref:"User"}
 });
 
 const Breeds = mongoose.model("Breeds", BreedsSchema);
