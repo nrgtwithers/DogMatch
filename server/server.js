@@ -12,6 +12,7 @@ const app = express()
 
 // Route requires
 const user = require('./routes/user');
+const breed = require('./routes/breeds')
 
 var mongoConnectUrl = process.env.MONGODB_URI;
 
@@ -46,6 +47,7 @@ app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 app.use('/user', user)
+app.use('/breed', breed)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

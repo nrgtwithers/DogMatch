@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 // import LogoTwo from '../components/Logo'
 import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
@@ -15,7 +16,13 @@ class Search extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
-	}
+    }
+    componentDidMount(){
+        var userEmail = localStorage.getItem(`userEmail`)
+       this.setState({
+           email: userEmail
+       })
+    }
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
@@ -25,19 +32,25 @@ class Search extends Component {
     }
     handleSubmit(event) {
         event.preventDefault()
-        console.log(`The breed your searching is ${this.state.searchQuery}`)
+        //console.log(`The breed your searching is ${this.state.searchQuery}`)
         let searchQuery = this.capitalizeFirstLetter(this.state.searchQuery)
         const results = infoPage.filter(info => info.breed.includes(searchQuery))
-        console.log(results)
+        //console.log(this.state)
         this.setState({
             results:results
-        })
-        // if (error){
-        //     alert('There are no search results.')
-        // }
+        });
+    
     }
+  
     capitalizeFirstLetter=string => {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    saveFavorite = (dog) => {
+        let information = {
+            favorite:dog,
+            userEmail: this.state.email
+        }
+        axios.post('/breed/dog', information).then((res) => console.log(res));
     }
     render() {
         return (
@@ -67,7 +80,7 @@ class Search extends Component {
                         </div>
                         {/* <SearchResults results={this.state.results} /> */}
                 </Jumbotron>
-                <SearchResults results={this.state.results} />
+                <SearchResults handleFormSubmit={this.saveFavorite} results={this.state.results} />
 
             </div>
                 )

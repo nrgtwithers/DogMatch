@@ -41,6 +41,7 @@ class Login extends Component {
           loggedIn: true,
           email: response.data.user.email
         })
+        localStorage.setItem(`userEmail`, JSON.stringify(response.data.user.email))
       } else {
         console.log('Get user: no user');
         this.setState({
