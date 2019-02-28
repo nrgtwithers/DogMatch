@@ -1,0 +1,19 @@
+.slider {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+#quiz-form label {
+    display: block;
+    text-align: center;
+}
+
+#quiz-form h2 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+#quiz-form input[type="radio"] {
+    margin-right: 10px;
+}

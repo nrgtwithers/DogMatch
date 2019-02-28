@@ -43,6 +43,7 @@ import FirstResult from '../components/FirstResult';
 import SecondResult from "../components/SecondResult";
 import ThirdResult from "../components/ThirdResult";
 import SliderLabels from "../components/SliderLabels/index.js";
+import "./quiz.css";
 
 
 class Form extends Component {
@@ -412,7 +413,8 @@ class Form extends Component {
                 <form className="form" id="quiz-form">
 
                     <div className="form-control">
-                        <label>What size dog do you want?
+                        <label>
+                            <h2>What size dog do you want?</h2>
                             <input
                                 type="radio"
                                 name="dogSize"
@@ -434,8 +436,6 @@ class Form extends Component {
                             Medium (23-50 pounds)
                         </label>
 
-
-
                         <label>
                             <input
                                 type="radio"
@@ -449,7 +449,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Are you willing and able to care for with a pet with genetic health issues?
+                        <label><h2>Are you willing and able to care for with a pet with genetic health issues?</h2>
                             <input
                                 type="radio"
                                 name="healthNeed"
@@ -484,7 +484,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>How much time will the dog spend alone?
+                        <label><h2>How much time will the dog spend alone?</h2>
                             <input
                                 type="radio"
                                 name="aloneTime"
@@ -519,7 +519,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>What is your experience with dogs?</label>
+                        <label><h2>What is your experience with dogs?</h2></label>
                         <label>
                             <input
                                 type="radio"
@@ -553,7 +553,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Would you prefer a high intensity or low intensity dog?</label>
+                        <label><h2>Would you prefer a high intensity or low intensity dog?</h2></label>
                         <label>
                             <input
                                 type="radio"
@@ -587,7 +587,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>How chaotic is your life?
+                        <label><h2>How chaotic is your life?</h2>
                             <input
                                 type="radio"
                                 name="sensitivity"
@@ -622,7 +622,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                    <label>How much shedding would you be able to handle?
+                    <label><h2>How much shedding would you be able to handle?</h2>
                             <input
                                 type="radio"
                                 name="shedding"
@@ -660,7 +660,7 @@ class Form extends Component {
 
 
                     <div className="form-control">
-                        <label>What is your current living arrangement?
+                        <label><h2>What is your current living arrangement?</h2>
                             <input
                                 type="radio"
                                 name="houseSize"
@@ -695,7 +695,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Do you live with children?
+                        <label><h2>Do you live with children?</h2>
                             <input
                                 type="radio"
                                 name="hasKids"
@@ -718,7 +718,7 @@ class Form extends Component {
                         </label>
                     </div>
                     <div className="form-control">
-                        <label>Do you live with other dogs?
+                        <label><h2>Do you live with other dogs?</h2>
                             <input
                                 type="radio"
                                 name="hasDogs"
@@ -744,7 +744,7 @@ class Form extends Component {
                    
 
                     <div className="form-control">
-                    <label>How active are you?
+                    <label><h2>How active are you?</h2>
                             <input
                                 type="radio"
                                 name="activity"
@@ -777,7 +777,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>How playful would you like your dog to be?
+                        <label><h2>How playful would you like your dog to be?</h2>
                             <input
                                 type="radio"
                                 name="playful"
@@ -810,7 +810,7 @@ class Form extends Component {
                         </div>
 
                         <div className="form-control">
-                        <label>Affectionate?</label>
+                        <label><h2>Affectionate?</h2></label>
                         <input
                             value={this.state.affection}
                             name="affection"
@@ -825,7 +825,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Exercise needs?</label>
+                        <label><h2>Exercise needs?</h2></label>
                         <input
                             value={this.state.exercise}
                             name="exercise"
@@ -840,7 +840,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>How easy should grooming be?</label>
+                        <label><h2>How easy should grooming be?</h2></label>
                         <input
                             value={this.state.grooming}
                             name="grooming"
@@ -854,7 +854,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Is cold weather common where you are?</label>
+                        <label><h2>Is cold weather common where you are?</h2></label>
                         <input
                             value={this.state.cold}
                             name="cold"
@@ -868,7 +868,7 @@ class Form extends Component {
                     </div>
 
                     <div className="form-control">
-                        <label>Is hot weather common where you are?</label>
+                        <label><h2>Is hot weather common where you are?</h2></label>
                         <input
                             value={this.state.hot}
                             name="hot"
@@ -881,8 +881,7 @@ class Form extends Component {
                         <SliderLabels />
                     </div>
 
-                    <button 
-                    disabled = {!isEnabled}
+                    <button
                     onClick={this.handleFormSubmit}>Submit</button>
                 </form>
 
