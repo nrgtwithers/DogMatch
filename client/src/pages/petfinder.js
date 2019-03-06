@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import fetchJsonp from "fetch-jsonp"
+import fetchJsonp from "fetch-jsonp";
+import PetfinderResults from "../components/Results/index";
 
 class PetFinder extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      results: []
+      results: [],
     };
   }
 
@@ -27,15 +27,9 @@ class PetFinder extends Component {
   }
 
   render() {
-    // this.componentDidMount=this.componentDidMount.bind(this);
-    // const {results} = this.state;
     return(
         <div>
-          {/* {results.map(item=>(
-            <h1 key = {item}>
-            {item}
-            </h1>
-          ))} */}
+         <PetfinderResults results={this.state.results}/>
         </div>
       )
     
