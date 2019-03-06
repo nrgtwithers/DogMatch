@@ -43,7 +43,7 @@ import FirstResult from '../components/FirstResult';
 import SecondResult from "../components/SecondResult";
 import ThirdResult from "../components/ThirdResult";
 import SliderLabels from "../components/SliderLabels/index.js";
-import "./Quiz.css";
+import "./quiz.css";
 
 
 class Form extends Component {

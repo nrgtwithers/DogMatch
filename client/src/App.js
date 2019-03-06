@@ -9,10 +9,10 @@ import Quiz from "./pages/Quiz";
 import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
 import NearMe from "./pages/NearMe";
-import PetFinder from "./pages/Petfinder";
+import PetFinder from "./pages/petfinder";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import './App.css';
 
 function App() {
 
