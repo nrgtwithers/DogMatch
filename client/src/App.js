@@ -9,6 +9,7 @@ import Quiz from "./pages/Quiz";
 import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
 import NearMe from "./pages/NearMe";
+import PetFinder from "./pages/petfinder";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/quiz/results" component={QuizResults} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/nearme" component={NearMe} />
+          <Route exact path="/petfinder" component = {PetFinder}/>
         </Switch>
       </div>
     </Router>

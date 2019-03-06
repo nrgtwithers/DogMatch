@@ -6,9 +6,12 @@ const session = require('express-session')
 const dbConnection = require('./database') 
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
+// const cors = require('cors');
 require('dotenv').config();
 
 const app = express()
+
+// app.use(cors());
 
 // Route requires
 const user = require('./routes/user');
