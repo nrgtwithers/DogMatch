@@ -1,27 +1,45 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import fetchJsonp from "fetch-jsonp"
-// import API from "../utils/API";
-// import SearchResults from "../components/Results/index"
 
 class PetFinder extends Component {
-  state={
-    results:[],
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      results: []
+    };
   }
-  componentDidMount(){
+
+  componentDidMount() {
     fetchJsonp("https://api.petfinder.com/shelter.find?format=json&key=e2e2583221dad933a332d4e10738bf15&location=22303&count=3&animal=dog&callback=callback", {
-      jsonpCallbackFunction:"callback"
+      jsonpCallbackFunction: "callback"
     })
-    .then(res => res.json())
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err));
+   .then(res => res.json())
+   .then(res=> this.setState({
+     results: res.petfinder.shelters.shelter
+   }, function(){
+     console.log(this.state.results)
+   }))
+
+
+  //  .then(data=>console.log(data.petfinder.shelters.shelter))
+  //   .catch(err=>console.log(err));
   }
-  
-  render(){
+
+  render() {
+    // this.componentDidMount=this.componentDidMount.bind(this);
+    // const {results} = this.state;
     return(
-      <div>
-        {/* <SearchResults results={this.state.results}/> */}
-      </div>
-    )
+        <div>
+          {/* {results.map(item=>(
+            <h1 key = {item}>
+            {item}
+            </h1>
+          ))} */}
+        </div>
+      )
+    
+   
   }
 }
 
