@@ -9,7 +9,7 @@ import Quiz from "./pages/Quiz";
 import QuizResults from "./pages/QuizResults";
 import Search from "./pages/Search";
 import NearMe from "./pages/NearMe";
-// import PetFinder from "./pages/Petfinder";
+import PetFinder from "./pages/Petfinder";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/quiz/results" component={QuizResults} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/nearme" component={NearMe} />
-          {/* <Route exact path="/petfinder" component ={PetFinder} /> */}
+          <Route exact path="/petfinder" component ={PetFinder} />
         </Switch>
       </div>
     </Router>
