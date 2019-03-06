@@ -1,4 +1,4 @@
-const infoPage = require ("../breed info/joinOutPutThree");
+const infoPage = require ("../breedInfo/joinOutPutThree");
 
 const result = infoPage.filter(info => info.breed == "Affenpinscher")
 

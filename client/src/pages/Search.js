@@ -3,7 +3,7 @@ import axios from "axios";
 import UserNav from '../components/UserNav';
 import Jumbotron from '../components/Jumbotron'
 import SearchResults from '../components/SearchResults'
-import infoPage from '../breed info/joinOutPutThree'
+import infoPage from '../breedInfo/joinOutPutThree'
 
 class Search extends Component {
     constructor(props) {

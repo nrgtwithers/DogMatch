@@ -35,15 +35,15 @@
 
 import React, { Component } from "react";
 // import { Route, Redirect } from 'react-router-dom'
-import { allNumericalInfo } from "../breed info/joinOutPutTwo";
+import { allNumericalInfo } from "../breedInfo/joinOutPutTwo";
 // import { func } from "prop-types";
 import UserNav from "../components/UserNav";
-import infoPage from '../breed info/joinOutPutThree';
+import infoPage from '../breedInfo/joinOutPutThree';
 import FirstResult from '../components/FirstResult';
 import SecondResult from "../components/SecondResult";
 import ThirdResult from "../components/ThirdResult";
 import SliderLabels from "../components/SliderLabels/index.js";
-import "./quiz.css";
+import "./Quiz.css";
 
 
 class Form extends Component {
