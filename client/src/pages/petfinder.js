@@ -11,12 +11,12 @@ class PetFinder extends Component {
   }
 
   componentDidMount() {
-    fetchJsonp("https://api.petfinder.com/shelter.find?format=json&key=e2e2583221dad933a332d4e10738bf15&location=22303&count=3&animal=dog&callback=callback", {
+    fetchJsonp("https://api.petfinder.com/pet.find?format=json&key=e2e2583221dad933a332d4e10738bf15&location=22303&count=3&breed=Affenpinscher", {
       jsonpCallbackFunction: "callback"
     })
    .then(res => res.json())
    .then(res=> this.setState({
-     results: res.petfinder.shelters.shelter
+     results: res.petfinder.pets.pet
    }, function(){
      console.log(this.state.results)
    }))
