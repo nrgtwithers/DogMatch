@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import fetchJsonp from "fetch-jsonp";
-import PetfinderResults from "../components/Results/index";
 import UserNav from '../components/UserNav';
+// import "../components/SearchResults/style.css";
 
 // import API from "../utils/API"
 // import AdoptionSearch from "../components/AdoptionSearch"
@@ -47,7 +47,7 @@ class PetFinder extends Component {
     this.search(this.refs.query.value);
   }
 
-  search(query = "Scottish Terrier") {
+  search(query = "Akita") {
     fetchJsonp(`https://api.petfinder.com/pet.find?format=json&key=e2e2583221dad933a332d4e10738bf15&count=3&breed=${query}&location=22303`, {
       jsonpCallbackFunction: "callback"
     }).then(res => res.json())
@@ -95,10 +95,10 @@ class PetFinder extends Component {
 
         <UserNav/>
        <Jumbotron>
-        <form action="/action_page.php" method="get">
+        <h2>Search Adoption Info:</h2>
+        <form >
           <input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
           <datalist id="breeds">
-            {/* <option value="Affenpinscher" /> */}
             <option value="Affenpinscher" />
             <option value="Afghan Hound" />
             <option value="Airedale Terrier" />
@@ -319,8 +319,8 @@ class PetFinder extends Component {
         </form>
         </Jumbotron>
 
-
         <PetfinderResults AdoptionResults={this.state.AdoptionResults} />
+
       </div>
     )
 
