@@ -22,6 +22,9 @@ function NavBar() {
                         <li className="nav-item">
                             <Link to="/signup" className="nav-link">Sign up</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/petfinder" className="nav-link">Adoption Info</Link>
+                        </li>
                     </ul>
 
                 </div>
