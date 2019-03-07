@@ -15,9 +15,8 @@ router.post('/dog', (req, res) => {
             }, {$push:{favorites:data._id}}).then(data=>res.json(data))
         }
     })
-    User.find({}).then(data=>console.log(data))
+    User.findById({}).then(data=>console.log(data))
 })
-
 
 
 

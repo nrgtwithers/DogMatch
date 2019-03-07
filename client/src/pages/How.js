@@ -1,6 +1,6 @@
 import React from 'react';
 // import LogoTwo from '../components/LogoTwo';
-import HowNav from '../components/HowNav/index'
+import UserNav from '../components/UserNav'
 import HowBody from "../components/HowBody"
 
 
@@ -8,7 +8,7 @@ function How() {
    
 return (
     <div>
-        <HowNav/>
+        <UserNav/>
         <HowBody/>
     </div>              
         )

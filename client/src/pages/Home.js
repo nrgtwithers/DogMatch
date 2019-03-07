@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Video from '../components/Video'
-import Logo from '../components/Logo'
 import QuizButton from '../components/QuizButton';
 import SearchBreedsBtn from '../components/SearchBreedsBtn';
 import NavBar from "../components/NavBar";
@@ -21,7 +20,6 @@ class Home extends Component {
             <div>
                 <NavBar />
                 <Video />
-                <Logo />
                 <QuizButton />
                 <SearchBreedsBtn />
                 <NearMeButton />
