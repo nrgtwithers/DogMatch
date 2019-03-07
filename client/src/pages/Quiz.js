@@ -70,7 +70,7 @@ class Form extends Component {
             intense: "",
             firstPlace: "",
             secondPlace: '',
-            thirdPlace: '',
+            thirdPlace: '', 
             results: [],
             secondResults: [],
             thirdResults: [],

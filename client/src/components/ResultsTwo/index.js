@@ -3,7 +3,7 @@ import React from "react";
 function PetfinderResults(props) {
     return (
         <div id="petfinderResults" >
-            {props.AdoptionResults.map((result) => (
+            {props.AdoptionResultsTwo.map((result) => (
                 <li>Name: {result.name.$t} 
                     <div id="resultImage">
                     <img alt="dog" src={result.media.photos.photo[0].$t}/>
