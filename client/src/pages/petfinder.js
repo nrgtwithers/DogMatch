@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import fetchJsonp from "fetch-jsonp";
-import PetfinderResults from "../components/Results/index";
 import UserNav from '../components/UserNav';
 
 // import API from "../utils/API"
