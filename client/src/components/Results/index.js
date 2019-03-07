@@ -9,14 +9,15 @@ function PetfinderResults(props) {
                 <li key={index} className="list-group-item">
                     <div className="row">
                     <div className="col-4"></div>
-                        <div className="col-1 image">
-                            <img alt="dog" src={result.media.photos.photo[0].$t} />
+                        <div className="img-fluid">
+                            <img alt="dog" src={result.media.photos.photo[1].$t}  />
                         </div>
                         <div className="col-4 info">
                             <h3 className="breed">{result.name.$t}</h3>
                             <p><strong>Age:</strong> {result.age.$t}</p>
-                            <p><strong>Breed:</strong> {result.breeds.breed.$t}</p>
                             <p><strong>Contact:</strong> {result.contact.email.$t}</p>
+                            <p><strong>Mixed Breed:</strong> {result.mix.$t}</p>
+                            <p><strong>Description:</strong> {result.description.$t}</p>
                         </div>
                     </div>
                 </li>

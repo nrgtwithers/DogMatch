@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import fetchJsonp from "fetch-jsonp";
 import UserNav from '../components/UserNav';
+// import "../components/SearchResults/style.css";
 
 // import API from "../utils/API"
 // import AdoptionSearch from "../components/AdoptionSearch"
@@ -46,7 +47,7 @@ class PetFinder extends Component {
     this.search(this.refs.query.value);
   }
 
-  search(query = "Scottish Terrier") {
+  search(query = "Akita") {
     fetchJsonp(`https://api.petfinder.com/pet.find?format=json&key=e2e2583221dad933a332d4e10738bf15&count=3&breed=${query}&location=22303`, {
       jsonpCallbackFunction: "callback"
     }).then(res => res.json())
@@ -94,10 +95,13 @@ class PetFinder extends Component {
 
         <UserNav/>
        <Jumbotron>
-        <form action="/action_page.php" method="get">
-          <input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
+        <h4 className="How">Search Breed</h4>
+        <br/><br/>
+        <form >
+          Search:<input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
+          <br/><br/><br/><br/><br/>
+        <p>Disclaimer: The majority of the breeds available for adoption are mixed but they do carry the classification of the search criteria.</p>
           <datalist id="breeds">
-            {/* <option value="Affenpinscher" /> */}
             <option value="Affenpinscher" />
             <option value="Afghan Hound" />
             <option value="Airedale Terrier" />
@@ -318,8 +322,8 @@ class PetFinder extends Component {
         </form>
         </Jumbotron>
 
-
         <PetfinderResults AdoptionResults={this.state.AdoptionResults} />
+
       </div>
     )
 
