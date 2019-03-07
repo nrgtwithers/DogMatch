@@ -95,9 +95,12 @@ class PetFinder extends Component {
 
         <UserNav/>
        <Jumbotron>
-        <h2>Search Adoption Info:</h2>
+        <h4 className="How">Search Breed</h4>
+        <br/><br/>
         <form >
-          <input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
+          Search:<input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
+          <br/><br/><br/><br/><br/>
+        <p>Disclaimer: The majority of the breeds available for adoption are mixed but they do carry the classification of the search criteria.</p>
           <datalist id="breeds">
             <option value="Affenpinscher" />
             <option value="Afghan Hound" />

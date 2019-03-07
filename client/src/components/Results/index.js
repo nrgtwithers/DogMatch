@@ -16,6 +16,7 @@ function PetfinderResults(props) {
                             <h3 className="breed">{result.name.$t}</h3>
                             <p><strong>Age:</strong> {result.age.$t}</p>
                             <p><strong>Contact:</strong> {result.contact.email.$t}</p>
+                            <p><strong>Mixed Breed:</strong> {result.mix.$t}</p>
                             <p><strong>Description:</strong> {result.description.$t}</p>
                         </div>
                     </div>
