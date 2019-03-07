@@ -95,10 +95,10 @@ class PetFinder extends Component {
 
         <UserNav/>
        <Jumbotron>
-        <h4 className="How">Search Breed</h4>
+        <h4 className="How">Search for Dogs</h4>
         <br/><br/>
         <form >
-          Search:<input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
+          Select: <input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
           <br/><br/><br/><br/><br/>
         <p>Disclaimer: The majority of the breeds available for adoption are mixed but they do carry the classification of the search criteria.</p>
           <datalist id="breeds">
