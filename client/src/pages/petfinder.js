@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-// import fetchJsonp from "fetch-jsonp";
-import PetfinderResults from "../components/Results/index";
+import UserNav from '../components/UserNav'
+import Jumbotron from '../components/Jumbotron'
+
+import PetfinderResults from "../components/Results"
 import API from "../utils/API"
 import AdoptionSearch from "../components/AdoptionSearch"
 
-// import Quiz from "./Quiz";
-
-// import Quiz from "./Quiz";
-
 class PetFinder extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       AdoptionResults: [],
@@ -54,7 +52,10 @@ class PetFinder extends Component {
   render() {
     return (
       <div>
-        <AdoptionSearch handleFormSubmit={this.handleFormSubmit} handleInputChnage={this.handleInputChange} search={this.state.search}/>
+        <UserNav />
+        <Jumbotron>
+        <AdoptionSearch handleFormSubmit={this.handleFormSubmit} handleInputChange={this.handleInputChange} search={this.state.search} />
+        </Jumbotron>
         <PetfinderResults AdoptionResults={this.state.AdoptionResults} />
       </div>
     )

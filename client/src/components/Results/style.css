@@ -1,0 +1,22 @@
+.image{
+    float: left;
+}
+
+.info{
+    float: right;
+}
+
+h3.breed{
+    text-align:left;
+    font-size: 30px;
+    font-weight:bold;
+    color:#468499;
+}
+
+strong{
+    color:#468499;
+}
+
+li.list-group-item{
+    padding: 30px;
+}

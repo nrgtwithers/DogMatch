@@ -1,10 +1,11 @@
 import React from "react";
+import "./style.css";
 
 function AdoptionSearch(props){
   return(
     <form>
     <div class="form-group">
-      <label htmlFor="breed">Breed</label>
+      <label htmlFor="breed"><h4 className="How">Search for Breeds Available for Adoption</h4></label>
       <textarea class="form-control" id="breed" rows="1"></textarea>
     </div>
     {/* <div class="form-group col-md-2">
@@ -14,7 +15,7 @@ function AdoptionSearch(props){
        onChange={props.handleInputChange}
        type="text" class="form-control" id="zip" />
     </div> */}
-    <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
+    <button type="submit" id="search" onClick={props.handleFormSubmit} className="btn btn-success">
           Search
         </button>
   </form>
