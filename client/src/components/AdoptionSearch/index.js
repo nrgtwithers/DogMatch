@@ -5,7 +5,7 @@ function AdoptionSearch(props){
   return(
     <form>
     <div class="form-group">
-      <label htmlFor="breed"><h4 className="How">Search for Breeds Available for Adoption</h4></label>
+      <label htmlFor="breed"><h4 className="How">Search for Dogs to Adopt</h4></label>
       <textarea class="form-control" id="breed" rows="1"></textarea>
     </div>
     {/* <div class="form-group col-md-2">
