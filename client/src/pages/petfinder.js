@@ -6,6 +6,8 @@ import AdoptionSearch from "../components/AdoptionSearch"
 
 // import Quiz from "./Quiz";
 
+// import Quiz from "./Quiz";
+
 class PetFinder extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +49,7 @@ class PetFinder extends Component {
     event.preventDefault();
     API.getInputInfo(this.state.search)
   }
+  
 
   render() {
     return (
