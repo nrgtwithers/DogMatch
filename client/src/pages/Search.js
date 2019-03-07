@@ -10,22 +10,22 @@ class Search extends Component {
         super(props);
 
         this.state = {
-          searchQuery: '',
-          results: []
+            searchQuery: '',
+            results: []
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
-    componentDidMount(){
+    componentDidMount() {
         var userEmail = localStorage.getItem(`userEmail`)
-       this.setState({
-           email: userEmail
-       })
+        this.setState({
+            email: userEmail
+        })
     }
-	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value
-        }, ()=>{
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        }, () => {
             console.log(this.state)
         })
     }
@@ -33,18 +33,27 @@ class Search extends Component {
         event.preventDefault()
         let searchQuery = this.capitalizeFirstLetter(this.state.searchQuery)
         const results = infoPage.filter(info => info.breed.includes(searchQuery))
-        this.setState({
-            results:results
-        });
-    
+            this.setState({
+                results: results
+            });
+        if (searchQuery === "") {
+            alert('Please enter a valid breed name!')
+        // } else if (searchQuery === "z") {
+        //     alert('No search results we found.')
+         } else {
+            const results = infoPage.filter(info => info.breed.includes(searchQuery))
+            this.setState({
+                results: results
+            });
+        }
     }
-  
-    capitalizeFirstLetter=string => {
+
+    capitalizeFirstLetter = string => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     saveFavorite = (dog) => {
         let information = {
-            favorite:dog,
+            favorite: dog,
             userEmail: this.state.email
         }
         axios.post('/breed/dog', information).then((res) => console.log(res));
@@ -52,7 +61,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-        <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+                <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
                 <Jumbotron>
                     <div className='search-container'>
                         <div className='row'>
@@ -61,25 +70,26 @@ class Search extends Component {
                             </div>
                         </div>
                         <div className='row'>
-                        <div className="col-md-3"></div>
+                            <div className="col-md-3"></div>
                             <div className='col-md-6'>
                                 <div className='search-box'>
                                     <form className='search-form'>
                                         <span><input className='form-control' placeholder='ex: German Shepherd, Bichon Frise, Lab...' type='text' name='searchQuery' value={this.state.searchQuery} onChange={this.handleChange} />
                                             <button onClick={this.handleSubmit} className='signButton'>
-                                            Search <i className="fas fa-search"></i>
+                                                Search <i className="fas fa-search"></i>
                                             </button></span>
-        </form>
-      </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </Jumbotron>
+
                 <SearchResults handleFormSubmit={this.saveFavorite} results={this.state.results} />
 
             </div>
-                )
-            }
-        };
-        
+        )
+    }
+};
+
 export default Search;
