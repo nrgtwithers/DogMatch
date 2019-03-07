@@ -8,9 +8,12 @@ import UserNav from '../components/UserNav';
 
 // import Quiz from "./Quiz";
 
+import Jumbotron from '../components/Jumbotron'
+import PetfinderResults from "../components/Results"
+
 class PetFinder extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       AdoptionResults: [],
@@ -89,7 +92,9 @@ class PetFinder extends Component {
   render() {
     return (
       <div>
+
         <UserNav/>
+       <Jumbotron>
         <form action="/action_page.php" method="get">
           <input ref="query" onChange={(e) => { this.updateSearch(); }} list="breeds" name="breed" />
           <datalist id="breeds">
@@ -312,6 +317,9 @@ class PetFinder extends Component {
             <option value="Yorkshire Terrier" />
           </datalist>
         </form>
+        </Jumbotron>
+
+
         <PetfinderResults AdoptionResults={this.state.AdoptionResults} />
       </div>
     )

@@ -1,0 +1,15 @@
+button#search{
+    margin-top: 60px;
+    color:white!important;
+    font-family: 'Prompt', sans-serif !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    border-width: 1px;
+    border-color: #468499 !important;
+    background:#468499  !important;
+}
+
+button#search:hover{
+    color:white !important;
+    background-color: silver !important;
+}

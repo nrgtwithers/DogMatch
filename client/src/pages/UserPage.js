@@ -9,8 +9,7 @@ class UserPage extends Component {
         super()
         this.state = {
             loggedIn: false,
-            email: null
-        }
+            email: null        }
 
         this.getUser = this.getUser.bind(this)
         this.componentDidMount = this.componentDidMount.bind(this)
@@ -34,13 +33,13 @@ class UserPage extends Component {
 
                 this.setState({
                     loggedIn: true,
-                    email: response.data.user.email
+                    email: response.data.user.email,
                 })
             } else {
                 console.log('Get user: no user');
                 this.setState({
                     loggedIn: false,
-                    email: null
+                    email: null,
                 })
             }
         })

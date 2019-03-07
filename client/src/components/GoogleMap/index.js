@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function NearMeButton() {
     return (
         <div id="content2">
-            <Link to="/nearme">
+            <Link to="/petfinder">
                 <button type="button" class="btn btn-light">
                     Find a Pup
                 </button>
