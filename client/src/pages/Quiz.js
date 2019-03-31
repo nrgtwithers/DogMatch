@@ -44,7 +44,7 @@ import SecondResult from "../components/SecondResult";
 import ThirdResult from "../components/ThirdResult";
 import SliderLabels from "../components/SliderLabels/index.js";
 import "./quiz.css";
-
+import { Redirect } from 'react-router-dom'
 
 class Form extends Component {
     constructor(props) {
@@ -70,11 +70,12 @@ class Form extends Component {
             intense: "",
             firstPlace: "",
             secondPlace: '',
-            thirdPlace: '', 
+            thirdPlace: '',
             results: [],
             secondResults: [],
             thirdResults: [],
-            adoptable: []
+            adoptable: [],
+            toResults: false
         };
         this.handleFormSubmit = this.handleFormSubmit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -87,13 +88,17 @@ class Form extends Component {
         });
     };
 
-    componentDidMount() {
+    // componentDidMount() {
 
-    }
+    // }
 
     handleFormSubmit = event => {
-
         event.preventDefault();
+
+        // goToResults(results)
+        //     .then(() => this.setState(() => ({
+        //         toResults: true
+        //     })))
 
         this.setState({
             affection: "",
@@ -404,7 +409,11 @@ class Form extends Component {
         const { affection, exercise, activity, hasKids, hasDogs, houseSize, experience, sensitivity, aloneTime, cold, hot, dogSize, shedding, grooming, healthNeed, intense } = this.state;
 
         const isEnabled = affection.length > 0 && exercise.length > 0 && activity.length > 0 && hasKids.length > 0 && hasDogs.length > 0 && houseSize.length > 0 && experience.length > 0 && sensitivity.length && aloneTime.length > 0 && cold.length > 0 && hot.length > 0 && dogSize.length > 0 && shedding.length > 0 && grooming.length > 0 && healthNeed.length > 0 && intense.length > 0;
+        if (this.state.toResults === true) {
+            return <Redirect to='/quiz/results' />
+        }
 
+        console.log(isEnabled)
         return (
             <div>
                 <UserNav />

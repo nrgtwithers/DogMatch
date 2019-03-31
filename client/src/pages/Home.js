@@ -3,7 +3,7 @@ import Video from '../components/Video'
 import QuizButton from '../components/QuizButton';
 import SearchBreedsBtn from '../components/SearchBreedsBtn';
 import NavBar from "../components/NavBar";
-import NearMeButton from '../components/GoogleMap';
+// import NearMeButton from '../components/GoogleMap';
 
 
 class Home extends Component {
@@ -22,7 +22,7 @@ class Home extends Component {
                 <Video />
                 <QuizButton />
                 <SearchBreedsBtn />
-                <NearMeButton />
+                {/* <NearMeButton /> */}
             </div>              
                 )
             }

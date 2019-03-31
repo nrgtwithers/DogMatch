@@ -1,18 +1,20 @@
 // import React, { Component } from 'react';
 // import UserNav from '../components/UserNav'
-// import LogoTwo from '../components/LogoTwo'
 // import axios from 'axios'
-// import Form from './Quiz'
 // import FirstResult from '../components/FirstResult';
 // import SecondResult from "../components/SecondResult";
 // import ThirdResult from "../components/ThirdResult";
+// import { results, secondResults, thirdResults} from './Quiz'
 
 // class QuizResults extends Component {
 //     constructor(props) {
 //         super(props)
 //         this.state = {
 //             loggedIn: false,
-//             email: null
+//             email: null,
+//             results: [],
+//             secondResults: [],
+//             thirdResults: []
 //         }
 
 //         this.getUser = this.getUser.bind(this)
@@ -53,7 +55,7 @@
 //         return (
 //             <div>
 //                 <UserNav updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-//                 <LogoTwo />
+
 //                 <FirstResult results={this.state.results} />
 //                 <SecondResult secondResults={this.state.secondResults} />
 //                 <ThirdResult thirdResults={this.state.thirdResults} />
